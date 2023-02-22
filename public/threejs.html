@@ -35,7 +35,7 @@
 
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
-      import Stats from 'three/addons/libs/stats.module.js';
+      		import Stats from 'three/addons/libs/stats.module.js';
 
 			let cameraPersp, cameraOrtho, currentCamera;
 			let scene, renderer, control, orbit, stats;
@@ -50,8 +50,6 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
 
-        stats = new Stats();
-        document.body.appendChild( stats.dom );
 
 				const aspect = window.innerWidth / window.innerHeight;
 
@@ -196,6 +194,8 @@
 
 				} );
 
+				stats = new Stats();
+				document.body.appendChild( stats.dom );
 			}
 
 			function onWindowResize() {
@@ -215,18 +215,18 @@
 
 			}
 
-			function render() {
-
-        animate();
-
+			function animate() {
+				requestAnimationFrame(animate);
+				render();
+				stats.update();
 			}
 
-      function animate() {
-        requestAnimationFrame( animate );
+			function render() {
 				renderer.render( scene, currentCamera );
+			}
 
-        stats.update();
-      }
+			animate();
+
 
 		</script>
 
