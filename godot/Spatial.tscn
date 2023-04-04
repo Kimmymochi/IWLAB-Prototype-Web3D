@@ -1,61 +1,106 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://p82yrnjyfwso"]
 
-[ext_resource path="res://Spatial.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://Spatial.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bxogkq5avy6k1" path="res://Earth.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://2lq4250813kr" path="res://Sun.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cc1tqk4b8tr2j" path="res://Mercury.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://b6hcy7ui5utw2" path="res://Venus.tscn" id="4_aftc1"]
+[ext_resource type="PackedScene" uid="uid://c0b00yp877qm" path="res://Mars.tscn" id="6_omdgy"]
+[ext_resource type="PackedScene" uid="uid://bd0bd8u2ojwas" path="res://Jupiter.tscn" id="7_bt355"]
+[ext_resource type="PackedScene" uid="uid://drn15cvsrou2s" path="res://Saturn.tscn" id="8_sg1ic"]
+[ext_resource type="PackedScene" uid="uid://8tdkyybgtyc" path="res://Neptune.tscn" id="9_n8j1h"]
+[ext_resource type="PackedScene" uid="uid://c1nulsi7euqa5" path="res://Uranus.tscn" id="10_rywy7"]
+[ext_resource type="PackedScene" uid="uid://c07wesyiau1aa" path="res://Pluto.tscn" id="11_5d08f"]
 
-[sub_resource type="CubeMesh" id=1]
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ) ]
+"values": [Vector3(0, 0, 6.28319)]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "speen"
+[sub_resource type="Animation" id="3"]
+resource_name = "spin"
 length = 2.0
-loop = true
+loop_mode = 1
+step = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( -2, -45.2548 ),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+"values": [Vector3(0, 0, 1.74846e-07), Vector3(0, 0, 6.28319)]
 }
 
-[node name="Spatial" type="Spatial"]
-script = ExtResource( 1 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c7rpc"]
+_data = {
+"RESET": SubResource("2"),
+"spin": SubResource("3")
+}
 
-[node name="kjoeb" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.747851, 0 )
-mesh = SubResource( 1 )
-
-[node name="kjoeb_animate" type="AnimationPlayer" parent="kjoeb"]
-anims/RESET = SubResource( 2 )
-anims/speen = SubResource( 3 )
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1")
 
 [node name="Button" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+offset_right = 12.0
+offset_bottom = 20.0
 toggle_mode = true
 text = "SPIN!"
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44889, 9.85532 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.44889, 388.761)
 current = true
+
+[node name="Sun" parent="." instance=ExtResource("3")]
+
+[node name="Planet" type="Node3D" parent="Sun"]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="PlanetAnimate" type="AnimationPlayer" parent="Sun/Planet"]
+libraries = {
+"": SubResource("AnimationLibrary_c7rpc")
+}
+
+[node name="Earth" parent="Sun/Planet" instance=ExtResource("2")]
+transform = Transform3D(1, -2.84217e-14, 0, 2.84217e-14, 1, 0, 0, 0, 1, -72.421, 1.26625e-05, 0)
+
+[node name="Mercury" parent="Sun/Planet" instance=ExtResource("4")]
+transform = Transform3D(-0.289205, -0.957267, 0, 0.957267, -0.289205, 0, 0, 0, 1, -92.0692, 0.271794, 0)
+
+[node name="Venus" parent="Sun/Planet" instance=ExtResource("4_aftc1")]
+transform = Transform3D(1, -4.26326e-14, 0, 4.26326e-14, 1, 0, 0, 0, 1, -73.0334, -55.8719, 0)
+
+[node name="Mars" parent="Sun/Planet" instance=ExtResource("6_omdgy")]
+transform = Transform3D(1, -4.26326e-14, 0, 4.26326e-14, 1, 0, 0, 0, 1, 60.8535, -58.706, 0)
+
+[node name="Jupiter" parent="Sun/Planet" instance=ExtResource("7_bt355")]
+transform = Transform3D(1, -4.26326e-14, 0, 4.26326e-14, 1, 0, 0, 0, 1, 90.2323, -42.1267, 0)
+
+[node name="Saturn" parent="Sun/Planet" instance=ExtResource("8_sg1ic")]
+transform = Transform3D(1, -8.52651e-14, 0, 8.52651e-14, 1, 0, 0, 0, 1, 101.981, 4.89348, -0.783443)
+
+[node name="Neptune" parent="Sun/Planet" instance=ExtResource("9_n8j1h")]
+transform = Transform3D(1, -4.26326e-14, 0, 4.26326e-14, 1, 0, 0, 0, 1, 84.9459, 76.5721, 0)
+
+[node name="Uranus" parent="Sun/Planet" instance=ExtResource("10_rywy7")]
+transform = Transform3D(1, -4.26326e-14, 0, 4.26326e-14, 1, 0, 0, 0, 1, 23.388, 86.9082, 0)
+
+[node name="Pluto" parent="Sun/Planet" instance=ExtResource("11_5d08f")]
+transform = Transform3D(1, -4.26326e-14, 0, 4.26326e-14, 1, 0, 0, 0, 1, -46.4751, 60.8482, 0)
 
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]

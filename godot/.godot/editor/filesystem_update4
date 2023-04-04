@@ -1,0 +1,13 @@
+res://default_env.tres
+res://Spatial.tscn
+res://Spatial.gd
+res://Earth.tscn
+res://Sun.tscn
+res://Jupiter.tscn
+res://Mercury.tscn
+res://Mars.tscn
+res://Neptune.tscn
+res://Pluto.tscn
+res://Saturn.tscn
+res://Uranus.tscn
+res://Venus.tscn
