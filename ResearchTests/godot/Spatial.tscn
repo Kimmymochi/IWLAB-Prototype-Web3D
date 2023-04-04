@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Spatial.gd" type="Script" id=1]
+[ext_resource path="res://Earth.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Mercury.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 360 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "spin"
+length = 2.0
+loop = true
+step = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Planet2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 360 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "spin"
+length = 2.0
+loop = true
+step = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Planet2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
+}
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+toggle_mode = true
+text = "SPIN!"
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.44889, 149.415 )
+current = true
+
+[node name="Sun" parent="." instance=ExtResource( 3 )]
+
+[node name="Planet" type="Spatial" parent="Sun"]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="PlanetAnimate" type="AnimationPlayer" parent="Sun/Planet"]
+root_node = NodePath("../Earth")
+anims/RESET = SubResource( 2 )
+anims/spin = SubResource( 3 )
+
+[node name="Earth" parent="Sun/Planet" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1282, -1.41849e-05, 0 )
+
+[node name="Mercury" parent="Sun/Planet" instance=ExtResource( 4 )]
+transform = Transform( -0.289205, -0.957267, 0, 0.957267, -0.289205, 0, 0, 0, 1, -7.80865, 74.3192, 0 )
+
+[node name="Planet2" type="Spatial" parent="Sun"]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="PlanetAnimate" type="AnimationPlayer" parent="Sun/Planet2"]
+root_node = NodePath("../../Planet/Mercury")
+anims/RESET = SubResource( 4 )
+anims/spin = SubResource( 5 )
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]
