@@ -1,20 +1,7 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://bo42lllvm6jgi"]
 
 [ext_resource type="Script" path="res://Planets/Planet.gd" id="1_m6203"]
-[ext_resource type="Texture2D" uid="uid://do0gdc685rgrv" path="res://Planets/Texture/material6.jpg" id="2_cirlu"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlpv2"]
-albedo_texture = ExtResource("2_cirlu")
-
-[sub_resource type="SphereMesh" id="SphereMesh_koy6l"]
-material = SubResource("StandardMaterial3D_mlpv2")
-radius = 4.57
-height = 8.24
 
 [node name="Planet" type="Node3D"]
 transform = Transform3D(1, -1.01332e-05, -4.11704e-05, 1.01332e-05, 1, -0.000222896, 4.11704e-05, 0.000222896, 1, 0, 0, 0)
 script = ExtResource("1_m6203")
-
-[node name="PlanetMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 1.31789e-12, -7.6388e-12, -1.31789e-12, 1, 6.11104e-11, 7.6388e-12, -6.11104e-11, 1, 0, 0, 0)
-mesh = SubResource("SphereMesh_koy6l")

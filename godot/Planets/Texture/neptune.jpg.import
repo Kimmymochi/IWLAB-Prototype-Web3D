@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uoa2crmeeovt"
-path.s3tc="res://.godot/imported/material2_atmosphere.jpg-134b4b96712609b860adabc5802329ca.s3tc.ctex"
+uid="uid://d17vyohikakev"
+path.s3tc="res://.godot/imported/neptune.jpg-401e1d106d631eadfcf947523a686b6d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/material2_atmosphere.jpg"
-dest_files=["res://.godot/imported/material2_atmosphere.jpg-134b4b96712609b860adabc5802329ca.s3tc.ctex"]
+source_file="res://Planets/Texture/neptune.jpg"
+dest_files=["res://.godot/imported/neptune.jpg-401e1d106d631eadfcf947523a686b6d.s3tc.ctex"]
 
 [params]
 

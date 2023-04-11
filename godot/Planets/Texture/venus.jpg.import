@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yy54l1yjlm1b"
-path.s3tc="res://.godot/imported/material1.jpg-78aa9f4809a9de6188e7262196fd75e2.s3tc.ctex"
+uid="uid://dm5kh7mkes65h"
+path.s3tc="res://.godot/imported/venus.jpg-75e54e6414d26d7d1f7989ef8dc01ace.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/material1.jpg"
-dest_files=["res://.godot/imported/material1.jpg-78aa9f4809a9de6188e7262196fd75e2.s3tc.ctex"]
+source_file="res://Planets/Texture/venus.jpg"
+dest_files=["res://.godot/imported/venus.jpg-75e54e6414d26d7d1f7989ef8dc01ace.s3tc.ctex"]
 
 [params]
 

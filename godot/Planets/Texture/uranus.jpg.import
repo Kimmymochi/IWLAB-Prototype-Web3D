@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://86e44ruhxt8m"
-path.s3tc="res://.godot/imported/material6_rings.png-a9bfb58c7a4a63282976a80966171f6b.s3tc.ctex"
+uid="uid://cat0ee7bq4uxb"
+path.s3tc="res://.godot/imported/uranus.jpg-a6e7148e3bc3becff494d4f6ba2b8ff1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/material6_rings.png"
-dest_files=["res://.godot/imported/material6_rings.png-a9bfb58c7a4a63282976a80966171f6b.s3tc.ctex"]
+source_file="res://Planets/Texture/uranus.jpg"
+dest_files=["res://.godot/imported/uranus.jpg-a6e7148e3bc3becff494d4f6ba2b8ff1.s3tc.ctex"]
 
 [params]
 

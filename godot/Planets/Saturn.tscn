@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb7xl0hmw7bxu"]
+[gd_scene load_steps=6 format=3 uid="uid://b6bsilr58qqif"]
 
-[ext_resource type="Texture2D" uid="uid://do0gdc685rgrv" path="res://Planets/Texture/material6.jpg" id="1_c578w"]
 [ext_resource type="ArrayMesh" uid="uid://cr5ftb7dngl2v" path="res://Planets/Saturn_RingsBottom.res" id="2_wdhpj"]
 [ext_resource type="ArrayMesh" uid="uid://dg8vk1xxjfif4" path="res://Planets/Saturn_RingsTop.res" id="3_n7tsj"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sbs25"]
+load_path = "res://.godot/imported/material6.jpg-981e5e8e512846b33480ac71cd684b20.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wb1v6"]
-albedo_texture = ExtResource("1_c578w")
+albedo_texture = SubResource("CompressedTexture2D_sbs25")
 
 [sub_resource type="SphereMesh" id="SphereMesh_gq6ig"]
 material = SubResource("StandardMaterial3D_wb1v6")

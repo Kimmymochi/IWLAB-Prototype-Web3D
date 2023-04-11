@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctsbieib5ta30"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dud8eujg3cjfc" path="res://Planets/Texture/material3.jpg" id="1_0jqeh"]
+[ext_resource type="Texture2D" uid="uid://dud8eujg3cjfc" path="res://Planets/Texture/earth.jpg" id="1_0jqeh"]
 [ext_resource type="Texture2D" uid="uid://c8t1n4e0iu6d" path="res://Planets/Texture/moon.jpg" id="2_jpsmg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbrox"]

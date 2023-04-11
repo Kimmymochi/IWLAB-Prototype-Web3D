@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d17vyohikakev"
-path.s3tc="res://.godot/imported/material8.jpg-91b278f0a83cd7027e29a5b04caeeec7.s3tc.ctex"
+uid="uid://dud8eujg3cjfc"
+path.s3tc="res://.godot/imported/earth.jpg-33eb46eb3d0aa57b072797794e168c97.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/material8.jpg"
-dest_files=["res://.godot/imported/material8.jpg-91b278f0a83cd7027e29a5b04caeeec7.s3tc.ctex"]
+source_file="res://Planets/Texture/earth.jpg"
+dest_files=["res://.godot/imported/earth.jpg-33eb46eb3d0aa57b072797794e168c97.s3tc.ctex"]
 
 [params]
 

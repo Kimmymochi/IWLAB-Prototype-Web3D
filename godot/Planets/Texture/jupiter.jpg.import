@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7f2rak3kr8g1"
-path.s3tc="res://.godot/imported/material0.jpg-8ff2f89e27fa7f2d311134981e9f1a20.s3tc.ctex"
+uid="uid://c86tjhuoapane"
+path.s3tc="res://.godot/imported/jupiter.jpg-01b2c3513ffbe1fff652b935c9dc78ea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/material0.jpg"
-dest_files=["res://.godot/imported/material0.jpg-8ff2f89e27fa7f2d311134981e9f1a20.s3tc.ctex"]
+source_file="res://Planets/Texture/jupiter.jpg"
+dest_files=["res://.godot/imported/jupiter.jpg-01b2c3513ffbe1fff652b935c9dc78ea.s3tc.ctex"]
 
 [params]
 

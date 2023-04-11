@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do0gdc685rgrv"
-path.s3tc="res://.godot/imported/material6.jpg-981e5e8e512846b33480ac71cd684b20.s3tc.ctex"
+uid="uid://dn032jdxq7x8r"
+path.s3tc="res://.godot/imported/mars.jpg-2a68f3ab0004dea3ecf847e35624ec07.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/material6.jpg"
-dest_files=["res://.godot/imported/material6.jpg-981e5e8e512846b33480ac71cd684b20.s3tc.ctex"]
+source_file="res://Planets/Texture/mars.jpg"
+dest_files=["res://.godot/imported/mars.jpg-2a68f3ab0004dea3ecf847e35624ec07.s3tc.ctex"]
 
 [params]
 

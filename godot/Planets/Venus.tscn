@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://5lnkthbp7yrq"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dm5kh7mkes65h" path="res://Planets/Texture/material2.jpg" id="1_370qm"]
-[ext_resource type="Texture2D" uid="uid://uoa2crmeeovt" path="res://Planets/Texture/material2_atmosphere.jpg" id="2_5gtpp"]
+[ext_resource type="Texture2D" uid="uid://dm5kh7mkes65h" path="res://Planets/Texture/venus.jpg" id="1_370qm"]
+[ext_resource type="Texture2D" uid="uid://uoa2crmeeovt" path="res://Planets/Texture/venus_atmosphere.jpg" id="2_5gtpp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hp3i"]
 albedo_texture = ExtResource("1_370qm")
