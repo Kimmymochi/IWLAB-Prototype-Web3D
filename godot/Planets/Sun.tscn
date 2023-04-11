@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1desx830286v"]
+
+[ext_resource type="Texture2D" uid="uid://7f2rak3kr8g1" path="res://Planets/Texture/material0.jpg" id="1_h55pe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81aob"]
+shading_mode = 0
+albedo_texture = ExtResource("1_h55pe")
+
+[sub_resource type="SphereMesh" id="SphereMesh_666vr"]
+material = SubResource("StandardMaterial3D_81aob")
+radius = 54.65
+height = 109.3
+
+[node name="Sun" type="Node3D"]
+
+[node name="Sun" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.320309, 3.8147e-06, -0.00840759)
+mesh = SubResource("SphereMesh_666vr")

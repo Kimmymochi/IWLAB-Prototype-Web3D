@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ydbeambjvb2"]
+
+[ext_resource type="Texture2D" uid="uid://yy54l1yjlm1b" path="res://Planets/Texture/material1.jpg" id="1_m7ca4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keiuk"]
+albedo_texture = ExtResource("1_m7ca4")
+
+[sub_resource type="SphereMesh" id="SphereMesh_nph84"]
+material = SubResource("StandardMaterial3D_keiuk")
+radius = 0.19
+height = 0.38
+
+[node name="Mercury" type="Node3D"]
+
+[node name="Mercury" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_nph84")

@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://5lnkthbp7yrq"]
+
+[ext_resource type="Texture2D" uid="uid://dm5kh7mkes65h" path="res://Planets/Texture/material2.jpg" id="1_370qm"]
+[ext_resource type="Texture2D" uid="uid://uoa2crmeeovt" path="res://Planets/Texture/material2_atmosphere.jpg" id="2_5gtpp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hp3i"]
+albedo_texture = ExtResource("1_370qm")
+clearcoat_roughness = 0.78
+clearcoat_texture = ExtResource("2_5gtpp")
+ao_light_affect = 0.6
+ao_texture = ExtResource("2_5gtpp")
+ao_texture_channel = 1
+use_particle_trails = true
+proximity_fade_distance = 9.35
+distance_fade_max_distance = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_mg08n"]
+material = SubResource("StandardMaterial3D_4hp3i")
+radius = 0.47
+height = 0.95
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67vs5"]
+albedo_texture = ExtResource("2_5gtpp")
+clearcoat_roughness = 0.78
+clearcoat_texture = ExtResource("2_5gtpp")
+ao_light_affect = 0.6
+ao_texture = ExtResource("2_5gtpp")
+ao_texture_channel = 1
+proximity_fade_distance = 9.35
+distance_fade_max_distance = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_0tfwf"]
+material = SubResource("StandardMaterial3D_67vs5")
+radius = 0.48
+height = 0.96
+
+[sub_resource type="Animation" id="Animation_x1bir"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Atmosphere:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -6.28319, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Atmosphere:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_rjaec"]
+resource_name = "spin"
+length = 4.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Atmosphere:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Atmosphere:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.1, 0.75, 0.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnvi4"]
+_data = {
+"RESET": SubResource("Animation_x1bir"),
+"spin": SubResource("Animation_rjaec")
+}
+
+[node name="Venus" type="Node3D"]
+
+[node name="Venus" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_mg08n")
+
+[node name="Atmosphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, -4.46638e-06, 0, 1, 0, 4.46638e-06, 0, 1, 0, 0, 0)
+transparency = 1.0
+mesh = SubResource("SphereMesh_0tfwf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spin"
+playback_default_blend_time = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_tnvi4")
+}
