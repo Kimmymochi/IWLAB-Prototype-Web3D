@@ -1,6 +1,6 @@
 extends MeshInstance3D
-#
-#
+
+		
 #var rotating = false
 #
 #var prev_position

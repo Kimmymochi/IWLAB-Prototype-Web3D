@@ -1,22 +1,20 @@
+@tool
+class_name Sun
 extends Node3D
 
-var rotating = false
+@onready var sun_tween: Tween = create_tween()
 
-var prev_position
-var next_position
+func _ready():
+	_sun_animate()
 
-func _process(delta):
-	
-	if(Input.is_action_just_pressed("Rotate")):
-		rotating = true
-		prev_position = get_viewport().get_mouse_position()
-		print('true')
-		
-	if(Input.is_action_just_released("Rotate")):
-		rotating = false
-		
-	if (rotating):
-		next_position = get_viewport().get_mouse_position()
-		rotate_y((next_position.x - prev_position.x) * .2 * delta)
-		rotate_z(-(next_position.y - prev_position.y) * .2 * delta)
-		prev_position = next_position
+
+
+func _sun_animate():
+	# rotate sun in a full circle, on loop
+	sun_tween.tween_property(
+		$Sun, 
+		"rotation_degrees", 
+		Vector3(0, 360, 0), 
+		16.8
+	).from_current()
+	sun_tween.set_loops()

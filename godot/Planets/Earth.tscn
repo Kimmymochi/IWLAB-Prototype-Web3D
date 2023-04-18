@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://tkgahb5ovdt0"]
 
 [ext_resource type="Texture2D" uid="uid://dud8eujg3cjfc" path="res://Planets/Texture/earth.jpg" id="1_0jqeh"]
 [ext_resource type="Texture2D" uid="uid://c8t1n4e0iu6d" path="res://Planets/Texture/moon.jpg" id="2_jpsmg"]
@@ -25,5 +25,4 @@ mesh = SubResource("SphereMesh_haxca")
 
 [node name="Moon" type="MeshInstance3D" parent="Earth"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.938, 0)
-visible = false
 mesh = SubResource("SphereMesh_mg7vq")
