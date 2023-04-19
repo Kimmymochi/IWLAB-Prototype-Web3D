@@ -17,7 +17,7 @@ extends Node3D
 @export_group("Planet Animation")
 @export var planet_speed: float
 enum Direction {RIGHT=360, LEFT=-360}
-@export var planet_direction: Direction
+@export var planet_direction: Direction = Direction.RIGHT
 
 
 @export_group("Orbit")

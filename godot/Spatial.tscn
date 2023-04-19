@@ -108,18 +108,6 @@ script = SubResource("GDScript_8susp")
 
 [node name="Sun" parent="." instance=ExtResource("3")]
 
-[node name="Mercury" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
-planet_name = "Mercurius"
-planet_radius = 1.0
-planet_height = 2.0
-planet_texture = "res://Planets/Texture/mercury.jpg"
-planet_speed = 235.2
-planet_direction = 360
-path_radius = 15.0
-orbit_time = 5.0
-orbit_offset = 110.0
-
 [node name="Venus" type="Node3D" parent="."]
 script = ExtResource("5_70auu")
 planet_name = "Venus"
@@ -140,7 +128,6 @@ planet_radius = 2.611
 planet_height = 5.222
 planet_texture = "res://Planets/Texture/earth.jpg"
 planet_speed = 4.0
-planet_direction = 360
 path_radius = 38.75
 orbit_time = 8.0
 orbit_offset = 190.0
@@ -152,7 +139,6 @@ planet_radius = 1.39
 planet_height = 2.779
 planet_texture = "res://Planets/Texture/mars.jpg"
 planet_speed = 4.12
-planet_direction = 360
 path_radius = 59.03
 orbit_time = 9.9
 orbit_offset = 20.0
@@ -164,7 +150,6 @@ planet_radius = 21.491
 planet_height = 38.684
 planet_texture = "res://Planets/Texture/jupiter.jpg"
 planet_speed = 1.66
-planet_direction = 360
 path_radius = 201.7
 orbit_time = 18.2
 orbit_offset = 40.0
@@ -177,7 +162,6 @@ planet_height = 32.238
 planet_texture = "res://Planets/Texture/saturn.jpg"
 planet_extra = Array[PackedScene]([ExtResource("14_37cem")])
 planet_speed = 1.78
-planet_direction = 360
 path_radius = 371.2
 orbit_time = 24.6
 orbit_offset = 330.0
@@ -201,7 +185,6 @@ planet_radius = 10.095
 planet_height = 20.19
 planet_texture = "res://Planets/Texture/neptune.jpg"
 planet_speed = 2.692
-planet_direction = 360
 path_radius = 1166.0
 orbit_time = 44.0
 orbit_offset = 355.0
@@ -227,6 +210,9 @@ omni_range = 5000.0
 omni_attenuation = 0.00961832
 omni_shadow_mode = 0
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kcred")
+
 [node name="Camera" type="Node3D" parent="."]
 script = ExtResource("13_k4m8v")
 
@@ -236,7 +222,4 @@ script = ExtResource("13_k4m8v")
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Camera/Horizontal/Vertical"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.68376e-06, 184.947)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera/Horizontal/Vertical"]
-environment = SubResource("Environment_kcred")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.84915e-08, 28.0373)
