@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://b83jrj7y5gysi"]
+[gd_scene load_steps=17 format=3]
 
-[ext_resource type="PackedScene" uid="uid://tkgahb5ovdt0" path="res://Planets/Earth.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://cg65dffn02seg" path="res://Planets/Sun.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://dxd7uwydp4reg" path="res://Planets/VenusAtmosphere.tscn" id="4_aftc1"]
-[ext_resource type="Script" path="res://Planets/Planet.gd" id="5_70auu"]
-[ext_resource type="Texture2D" uid="uid://cqwwunw3e3lgg" path="res://Planets/Texture/8k_stars_milky_way.jpg" id="7_1dvq1"]
-[ext_resource type="Script" path="res://Camera.gd" id="13_k4m8v"]
-[ext_resource type="PackedScene" uid="uid://crmnw4irucpn" path="res://Planets/SaturnRings.tscn" id="14_37cem"]
+[ext_resource type="PackedScene" uid="uid://ciq76yytpf6hv" path="res://nodes/planet/planet_extra/earth/earth_moon.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://nodes/sun/sun.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://nodes/planet/planet_extra/venus/venus_atmosphere.tscn" id="4_aftc1"]
+[ext_resource type="Script" path="res://nodes/planet/planet.gd" id="5_70auu"]
+[ext_resource type="Texture2D" uid="uid://cqwwunw3e3lgg" path="res://textures/stars_big.jpg" id="7_1dvq1"]
+[ext_resource type="Script" path="res://nodes/camera/camera.gd" id="13_k4m8v"]
+[ext_resource type="PackedScene" path="res://nodes/planet/planet_extra/saturn/saturn_rings.tscn" id="14_37cem"]
 
 [sub_resource type="GDScript" id="GDScript_8susp"]
 script/source = "extends Node3D
@@ -113,7 +113,7 @@ script = ExtResource("5_70auu")
 planet_name = "Venus"
 planet_radius = 2.48
 planet_height = 4.96
-planet_texture = "res://Planets/Texture/venus.jpg"
+planet_texture = "res://textures/venus.jpg"
 planet_extra = Array[PackedScene]([ExtResource("4_aftc1")])
 planet_speed = 976.0
 planet_direction = -360
@@ -126,7 +126,7 @@ script = ExtResource("5_70auu")
 planet_name = "Aarde"
 planet_radius = 2.611
 planet_height = 5.222
-planet_texture = "res://Planets/Texture/earth.jpg"
+planet_texture = "res://textures/earth.jpg"
 planet_speed = 4.0
 path_radius = 38.75
 orbit_time = 8.0
@@ -137,7 +137,7 @@ script = ExtResource("5_70auu")
 planet_name = "Mars"
 planet_radius = 1.39
 planet_height = 2.779
-planet_texture = "res://Planets/Texture/mars.jpg"
+planet_texture = "res://textures/mars.jpg"
 planet_speed = 4.12
 path_radius = 59.03
 orbit_time = 9.9
@@ -148,7 +148,7 @@ script = ExtResource("5_70auu")
 planet_name = "Jupiter"
 planet_radius = 21.491
 planet_height = 38.684
-planet_texture = "res://Planets/Texture/jupiter.jpg"
+planet_texture = "res://textures/jupiter.jpg"
 planet_speed = 1.66
 path_radius = 201.7
 orbit_time = 18.2
@@ -159,7 +159,7 @@ script = ExtResource("5_70auu")
 planet_name = "Saturnus"
 planet_radius = 17.91
 planet_height = 32.238
-planet_texture = "res://Planets/Texture/saturn.jpg"
+planet_texture = "res://textures/saturn.jpg"
 planet_extra = Array[PackedScene]([ExtResource("14_37cem")])
 planet_speed = 1.78
 path_radius = 371.2
@@ -171,7 +171,7 @@ script = ExtResource("5_70auu")
 planet_name = "Uranus"
 planet_radius = 10.395
 planet_height = 20.79
-planet_texture = "res://Planets/Texture/uranus.jpg"
+planet_texture = "res://textures/uranus.jpg"
 planet_speed = 2.88
 planet_direction = -360
 path_radius = 745.2
@@ -183,7 +183,7 @@ script = ExtResource("5_70auu")
 planet_name = "Neptunus"
 planet_radius = 10.095
 planet_height = 20.19
-planet_texture = "res://Planets/Texture/neptune.jpg"
+planet_texture = "res://textures/neptune.jpg"
 planet_speed = 2.692
 path_radius = 1166.0
 orbit_time = 44.0

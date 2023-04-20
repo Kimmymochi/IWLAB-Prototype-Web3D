@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo42lllvm6jgi"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Planets/Planet.gd" id="1_m6203"]
+[ext_resource type="Script" path="res://nodes/planet/planet.gd" id="1_m6203"]
+
 
 [node name="Planet" type="Node3D"]
 transform = Transform3D(1, -1.01332e-05, -4.11704e-05, 1.01332e-05, 1, -0.000222896, 4.11704e-05, 0.000222896, 1, 0, 0, 0)

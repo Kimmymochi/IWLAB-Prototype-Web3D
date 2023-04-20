@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciq76yytpf6hv"]
+
+[ext_resource type="Texture2D" uid="uid://c8t1n4e0iu6d" path="res://textures/moon.jpg" id="1_vav0f"]
+[ext_resource type="Texture2D" uid="uid://dud8eujg3cjfc" path="res://textures/earth.jpg" id="2_m2sub"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxtf5"]
+albedo_texture = ExtResource("1_vav0f")
+
+[sub_resource type="SphereMesh" id="SphereMesh_mg7vq"]
+material = SubResource("StandardMaterial3D_kxtf5")
+radius = 0.136
+height = 0.273
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbrox"]
+albedo_texture = ExtResource("2_m2sub")
+
+[sub_resource type="SphereMesh" id="SphereMesh_haxca"]
+material = SubResource("StandardMaterial3D_cbrox")
+height = 0.99
+
+[node name="Earth" type="Node3D"]
+
+[node name="Moon" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.938, 0)
+mesh = SubResource("SphereMesh_mg7vq")
+skeleton = NodePath("../Earth")
+
+[node name="Earth" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_haxca")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cat0ee7bq4uxb"
-path.s3tc="res://.godot/imported/uranus.jpg-a6e7148e3bc3becff494d4f6ba2b8ff1.s3tc.ctex"
+uid="uid://cqwwunw3e3lgg"
+path.s3tc="res://.godot/imported/stars_big.jpg-2517c2e3d13ad0835b71f3271d98d14c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/uranus.jpg"
-dest_files=["res://.godot/imported/uranus.jpg-a6e7148e3bc3becff494d4f6ba2b8ff1.s3tc.ctex"]
+source_file="res://textures/stars_big.jpg"
+dest_files=["res://.godot/imported/stars_big.jpg-2517c2e3d13ad0835b71f3271d98d14c.s3tc.ctex"]
 
 [params]
 

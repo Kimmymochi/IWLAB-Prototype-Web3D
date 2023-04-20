@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg65dffn02seg"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Texture2D" uid="uid://7f2rak3kr8g1" path="res://Planets/Texture/sun.jpg" id="1_8d3te"]
-[ext_resource type="Script" path="res://Planets/Sun.gd" id="1_bf6u4"]
+[ext_resource type="Texture2D" uid="uid://7f2rak3kr8g1" path="res://textures/sun.jpg" id="1_8d3te"]
+[ext_resource type="Script" path="res://nodes/sun/sun.gd" id="1_bf6u4"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81aob"]
 shading_mode = 0

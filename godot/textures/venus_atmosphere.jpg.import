@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yy54l1yjlm1b"
-path.s3tc="res://.godot/imported/mercury.jpg-b941878669db35e956afc20cff3cc50f.s3tc.ctex"
+uid="uid://uoa2crmeeovt"
+path.s3tc="res://.godot/imported/venus_atmosphere.jpg-4cb4b80ab0ca4741984a175695528023.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/mercury.jpg"
-dest_files=["res://.godot/imported/mercury.jpg-b941878669db35e956afc20cff3cc50f.s3tc.ctex"]
+source_file="res://textures/venus_atmosphere.jpg"
+dest_files=["res://.godot/imported/venus_atmosphere.jpg-4cb4b80ab0ca4741984a175695528023.s3tc.ctex"]
 
 [params]
 

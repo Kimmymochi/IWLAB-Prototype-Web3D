@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm5kh7mkes65h"
-path.s3tc="res://.godot/imported/venus.jpg-75e54e6414d26d7d1f7989ef8dc01ace.s3tc.ctex"
+uid="uid://86e44ruhxt8m"
+path.s3tc="res://.godot/imported/saturn_rings.png-9609f1b040fdbc4f3a5603b4ed623c46.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Planets/Texture/venus.jpg"
-dest_files=["res://.godot/imported/venus.jpg-75e54e6414d26d7d1f7989ef8dc01ace.s3tc.ctex"]
+source_file="res://textures/saturn_rings.png"
+dest_files=["res://.godot/imported/saturn_rings.png-9609f1b040fdbc4f3a5603b4ed623c46.s3tc.ctex"]
 
 [params]
 
