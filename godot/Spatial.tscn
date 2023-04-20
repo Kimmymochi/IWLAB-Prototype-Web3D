@@ -127,6 +127,7 @@ planet_name = "Aarde"
 planet_radius = 2.611
 planet_height = 5.222
 planet_texture = "res://textures/earth.jpg"
+planet_extra = Array[PackedScene]([ExtResource("2")])
 planet_speed = 4.0
 path_radius = 38.75
 orbit_time = 8.0
@@ -222,4 +223,3 @@ script = ExtResource("13_k4m8v")
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Camera/Horizontal/Vertical"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
