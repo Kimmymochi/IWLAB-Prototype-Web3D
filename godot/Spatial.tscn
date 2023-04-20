@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=17 format=3 uid="uid://dykp3samlmpjh"]
 
 [ext_resource type="PackedScene" uid="uid://ciq76yytpf6hv" path="res://nodes/planet/planet_extra/earth/earth_moon.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://nodes/sun/sun.tscn" id="3"]
@@ -222,4 +222,4 @@ script = ExtResource("13_k4m8v")
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Camera/Horizontal/Vertical"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.84915e-08, 28.0373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)

@@ -5,44 +5,64 @@ extends Node3D
 var dragging = false
 var zooming = false
 
+# variables for turning horizontal gimbal
 var h_rotation = 0
 var h_sensitivity = 0.1
 var h_speed = 30
 
-
+# variables for turning vertical gimbal
 var v_rotation = 0
 var v_sensitivity = 0.1
 var v_speed = 30
 var v_min = -55
 var v_max = 75
 
+# variables changing camera z position (zoom)
+var z_position = 100
+var z_sensitivity = 0.01
+var z_speed = 10
+var z_min = 20
+var z_max = 1500
 
-var zoom = 1
-var zoom_sensitivity = 0.8
-var zoom_speed = 20
-var zoom_min = 40
-var zoom_max = 1500
-
+# variables for touch inputs
 var events = {}
 var last_drag_distance = 0
-
-
-
 
 
 func _unhandled_input(event):
 	
 	# MOUSE EVENTS
 	# -------------------------------
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.is_pressed():
-				dragging = true
-			else:
-				dragging = false
+#	if event is InputEventMouseButton:
+#		if event.is_pressed():
+#			match event.button_index:
+#				MOUSE_BUTTON_LEFT:
+#					dragging = true
+#				MOUSE_BUTTON_WHEEL_UP:
+#					zooming = true
+#					_change_cam_zoom("IN")
+#				MOUSE_BUTTON_WHEEL_DOWN:
+#					zooming = true
+#					_change_cam_zoom("OUT")
+#		else:
+#			zooming = false
+#			dragging = false
+#
+		
+#		if event.button_index == MOUSE_BUTTON_LEFT:
+#			dragging = (true) if event.is_pressed() else (false)
+#
+#		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN or MOUSE_BUTTON_WHEEL_UP:
+#			if event.is_pressed():
+#				zooming = true
+				
+#			zooming = (true) if event.is_pressed() else (false)
+			
 		
 	if event is InputEventMouseMotion and dragging:
 		_change_cam_rotation(event)
+	
+	
 		
 	# TOUCH EVENTS
 	# -------------------------------
@@ -57,12 +77,16 @@ func _unhandled_input(event):
 
 		if events.size() == 1:
 			_change_cam_rotation(event)
-#
-#		elif events.size() == 2:
-#			zooming = true
-#			_change_cam_zoom()
-#	else:
-#		zooming = false
+
+		elif events.size() == 2:
+			zooming = true
+			var drag_distance = events.values()[0].position.distance_to(events.values()[1].position)
+			if abs(drag_distance - last_drag_distance) > z_sensitivity:
+				_change_cam_zoom("IN") if drag_distance < last_drag_distance else _change_cam_zoom("OUT")
+				last_drag_distance = drag_distance
+				
+	else:
+		zooming = false
 
 
 
@@ -71,46 +95,32 @@ func _change_cam_rotation(event):
 		h_rotation += -event.relative.x * h_sensitivity
 		v_rotation += -event.relative.y * v_sensitivity
 
-func _change_cam_zoom():
-	var drag_distance = events.values()[0].position.distance_to(events.values()[1].position)
-	if abs(drag_distance - last_drag_distance) > zoom_sensitivity:
-		zoom = (1 + zoom_speed) if drag_distance < last_drag_distance else (1 - zoom_speed)
-		last_drag_distance = drag_distance
+func _change_cam_zoom(direction):
+		if direction == "IN":
+			z_position += camera.position.z * z_sensitivity
+		else:
+			z_position -= camera.position.z * z_sensitivity
+		
+
+#		zoom = (1 + zoom_speed) if drag_distance < last_drag_distance else (1 - zoom_speed)
+#		last_drag_distance = drag_distance
 
 
 
 
 
 func _physics_process(delta):
-	
-
-
-#		print(zoom_cam.x)
-#
-	
+	if zooming:
+		z_position = clamp(z_position, z_min, z_max)
+		
+		camera.position.z = lerpf(
+			camera.position.z, 
+			z_position, 
+			delta * z_speed
+		)
 
 	if dragging:
-#		if zooming:
-#			zoom = clamp(camera.position.z * zoom, zoom_min, zoom_max)
-#
-#			var tween
-#			if tween:
-#				tween.kill()
-#			tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT).set_parallel(true)
-#
-#			tween.tween_property(
-#				camera,
-#				"position:z",
-#				zoom,
-#				delta * zoom_speed
-#			)
-			
-#			camera.position.z = lerpf(
-#				camera.position.z, 
-#				zoom, 
-#				delta * zoom_speed
-#			)
-			
+		
 		# tween setup: kill previous and create new one
 		var tween
 		if tween:
