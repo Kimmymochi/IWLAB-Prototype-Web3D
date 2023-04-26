@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://nodes/camera/solarcamera.gd" id="1_54m66"]
+
+[node name="Camera" type="Node3D"]
+script = ExtResource("1_54m66")
+
+[node name="Horizontal" type="Node3D" parent="."]
+
+[node name="Vertical" type="Node3D" parent="Horizontal"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Horizontal/Vertical"]

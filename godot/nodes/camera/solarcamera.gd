@@ -1,4 +1,5 @@
 extends Node3D
+class_name SolarCamera
 
 @onready var camera : Camera3D = $Horizontal/Vertical/Camera3D
 
@@ -18,7 +19,7 @@ var v_min = -55
 var v_max = 75
 
 # variables changing camera z position (zoom)
-var z_position = 100
+var z_position = 35
 var z_sensitivity = 0.01
 var z_speed = 5
 var z_min = 20
@@ -47,17 +48,6 @@ func _unhandled_input(event):
 		else:
 			dragging = false
 
-		
-#		if event.button_index == MOUSE_BUTTON_LEFT:
-#			dragging = (true) if event.is_pressed() else (false)
-#
-#		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN or MOUSE_BUTTON_WHEEL_UP:
-#			if event.is_pressed():
-#				zooming = true
-				
-#			zooming = (true) if event.is_pressed() else (false)
-			
-		
 	if event is InputEventMouseMotion and dragging:
 		_change_cam_rotation(event)
 	
@@ -96,17 +86,14 @@ func _change_cam_zoom(direction, multiplier):
 
 
 func _physics_process(delta):
-#	if zooming:
 	z_position = clamp(z_position, z_min, z_max)
-	
 	camera.position.z = lerpf(
 		camera.position.z, 
 		z_position, 
 		delta * z_speed
 	)
 
-#	if dragging:
-		
+
 	# tween setup: kill previous and create new one
 	var tween
 	if tween:
@@ -131,16 +118,7 @@ func _physics_process(delta):
 		v_rotation,
 		delta * v_speed
 	)
-	
 
-#		$Horizontal.rotation_degrees.y = lerpf(
-#			$Horizontal.rotation_degrees.y, 
-#			camrot_h, 
-#			delta * h_acceleration
-#		)
-#
-#		$Horizontal/Vertical.rotation_degrees.x = lerpf(
-#			$Horizontal/Vertical.rotation_degrees.x, 
-#			camrot_v, 
-#			delta * v_acceleration
-#		)
+func change_current():
+	get_viewport().get_camera_3d().current = false
+	camera.current = true

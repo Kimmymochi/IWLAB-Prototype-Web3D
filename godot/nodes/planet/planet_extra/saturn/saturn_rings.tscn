@@ -1,8 +1,7 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://1e0u62qci5yb"]
 
 [ext_resource type="ArrayMesh" uid="uid://cr5ftb7dngl2v" path="res://nodes/planet/planet_extra/saturn/saturn_rings_bottom.res" id="1_45kdj"]
 [ext_resource type="ArrayMesh" uid="uid://dg8vk1xxjfif4" path="res://nodes/planet/planet_extra/saturn/saturn_rings_top.res" id="2_w3obo"]
-
 
 [node name="SaturnRings" type="Node3D"]
 transform = Transform3D(0.031, 0, 0, 0, 0.031, 0, 0, 0, 0.031, 0, 0, 0)
