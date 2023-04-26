@@ -70,6 +70,7 @@ func _ready():
 	SolarSettings.planet_view_toggled.connect(_check_visibility)
 
 func _make_planet() -> Node3D:
+	var planet_container = Node3D.new()
 	planet = MeshInstance3D.new()
 	
 	
@@ -93,17 +94,17 @@ func _make_planet() -> Node3D:
 	for scene in planet_extra:
 		planet.add_child(scene.instantiate())
 	
-	solar_camera = load("res://nodes/camera/solarcamera.tscn").instantiate()
 	
-	planet.add_child(solar_camera)
-	planet.add_child(_make_label())
+	
+	solar_camera = load("res://nodes/camera/solarcamera.tscn").instantiate()
+	planet_container.add_child(planet)
+	planet_container.add_child(solar_camera)
+	planet_container.add_child(_make_label())
 	
 	# set sphere position
-	planet.position.x = path_radius
+	planet_container.position.x = path_radius
 	
-	
-
-	return planet
+	return planet_container
 
 func _make_label() -> Node3D:
 	var container = Node3D.new()

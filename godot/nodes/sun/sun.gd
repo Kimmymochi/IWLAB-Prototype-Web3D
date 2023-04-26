@@ -20,5 +20,5 @@ func _sun_animate():
 		$Sun, 
 		"rotation_degrees", 
 		Vector3(0, 360, 0), 
-		49.4 / SolarSettings.speed_factor
+		296.40 / SolarSettings.speed_factor
 	).from_current()
