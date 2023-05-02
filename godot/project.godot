@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Web3DTest"
-run/main_scene="res://Spatial.tscn"
+run/main_scene="res://solarsystem.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 

@@ -122,3 +122,4 @@ func _physics_process(delta):
 func change_current():
 	get_viewport().get_camera_3d().current = false
 	camera.current = true
+

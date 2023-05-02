@@ -1,6 +1,6 @@
 extends Node
 
-var speed_factor : float = 0.5:
+var speed_factor : float = 1:
 	get:
 		return speed_factor if in_planet_view.is_empty() else 0.01
 		
@@ -16,6 +16,8 @@ var in_planet_view : String = "":
 		speed_factor_updated.emit()
 		
 		
+
+var global_camera : SolarCamera
 
 signal speed_factor_updated
 signal planet_view_toggled

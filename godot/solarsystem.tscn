@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://hsegmrgpsq6f"]
+[gd_scene load_steps=14 format=3 uid="uid://hsegmrgpsq6f"]
 
-[ext_resource type="PackedScene" uid="uid://ciq76yytpf6hv" path="res://nodes/planet/planet_extra/earth/earth_moon.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://bynhhy0qmy17n" path="res://nodes/label/solarlabel.tscn" id="2_wvwdm"]
-[ext_resource type="PackedScene" uid="uid://ds82ut4jkmwtb" path="res://nodes/sun/sun.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://cf2vnp4lrhklb" path="res://nodes/planet/planet_extra/venus/venus_atmosphere.tscn" id="4_aftc1"]
-[ext_resource type="Script" path="res://nodes/planet/planet.gd" id="5_70auu"]
-[ext_resource type="Texture2D" uid="uid://cqwwunw3e3lgg" path="res://textures/stars_big.jpg" id="7_1dvq1"]
-[ext_resource type="PackedScene" path="res://nodes/camera/solarcamera.tscn" id="7_rng48"]
-[ext_resource type="PackedScene" uid="uid://1e0u62qci5yb" path="res://nodes/planet/planet_extra/saturn/saturn_rings.tscn" id="14_37cem"]
+[ext_resource type="PackedScene" uid="uid://djdc76ij1joyw" path="res://nodes/close/close.tscn" id="1_ygoom"]
+[ext_resource type="PackedScene" uid="uid://ds82ut4jkmwtb" path="res://nodes/sun/sun.tscn" id="2_cisao"]
+[ext_resource type="PackedScene" uid="uid://bynhhy0qmy17n" path="res://nodes/label/solarlabel.tscn" id="3_nxmdc"]
+[ext_resource type="Script" path="res://nodes/planet/planet.gd" id="4_bqnuc"]
+[ext_resource type="PackedScene" uid="uid://cf2vnp4lrhklb" path="res://nodes/planet/planet_extra/venus/venus_atmosphere.tscn" id="5_bfrpu"]
+[ext_resource type="PackedScene" uid="uid://ciq76yytpf6hv" path="res://nodes/planet/planet_extra/earth/earth_moon.tscn" id="6_5nw5a"]
+[ext_resource type="PackedScene" uid="uid://1e0u62qci5yb" path="res://nodes/planet/planet_extra/saturn/saturn_rings.tscn" id="7_i7v1w"]
+[ext_resource type="Texture2D" uid="uid://cqwwunw3e3lgg" path="res://textures/stars_big.jpg" id="8_bfggo"]
+[ext_resource type="PackedScene" uid="uid://dtc7ruoqsvl20" path="res://nodes/camera/solarcamera.tscn" id="9_3lh1d"]
 
 [sub_resource type="GDScript" id="GDScript_8susp"]
 script/source = "extends Node3D
@@ -16,7 +17,7 @@ script/source = "extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	SolarSettings.global_camera = $Camera
 
 
 
@@ -42,7 +43,7 @@ func _on_h_slider_value_changed(value):
 "
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g2knv"]
-panorama = ExtResource("7_1dvq1")
+panorama = ExtResource("8_bfggo")
 
 [sub_resource type="Sky" id="Sky_dm6al"]
 sky_material = SubResource("PanoramaSkyMaterial_g2knv")
@@ -62,128 +63,132 @@ glow_blend_mode = 0
 [node name="SolarSystem" type="Node3D"]
 script = SubResource("GDScript_8susp")
 
+[node name="Close" parent="." instance=ExtResource("1_ygoom")]
+
 [node name="HSlider" type="HSlider" parent="."]
-offset_right = 202.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
 offset_bottom = 45.0
+grow_horizontal = 0
 min_value = 0.1
 max_value = 5.0
 value = 0.1
 
-[node name="Sun" parent="." instance=ExtResource("3")]
+[node name="Sun" parent="." instance=ExtResource("2_cisao")]
 
 [node name="SunLabel" type="Node3D" parent="Sun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5477, 0)
 
-[node name="SolarLabel" parent="Sun/SunLabel" node_paths=PackedStringArray("target_node") instance=ExtResource("2_wvwdm")]
+[node name="SolarLabel" parent="Sun/SunLabel" node_paths=PackedStringArray("target_node") instance=ExtResource("3_nxmdc")]
 label_text = "Zon"
-target_node = NodePath("..")
+target_node = NodePath("../..")
 
 [node name="Mercurius" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Mercurius"
 planet_radius = 1.0
 planet_height = 2.0
-planet_texture = "res://textures/mercury.jpg"
-planet_speed = 705.6
 planet_tilt = 0.003
+planet_texture = "res://textures/mercury.jpg"
 path_radius = 14.99
 path_tilt = 7.0
-orbit_speed = 1055.58
+planet_speed = 705.6
+orbit_speed = 10.0
 orbit_offset = 15.0
 
 [node name="Venus" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Venus"
 planet_radius = 2.48
 planet_height = 4.96
+planet_tilt = 177.4
 planet_texture = "res://textures/venus.jpg"
-planet_extra = Array[PackedScene]([ExtResource("4_aftc1")])
-planet_speed = 2928.0
-planet_tilt = -177.4
-planet_direction = -360
+planet_extra = Array[PackedScene]([ExtResource("5_bfrpu")])
 path_radius = 28.01
 path_tilt = 3.4
-orbit_speed = 2693.7
+planet_speed = 2928.0
+orbit_speed = 27.0
 orbit_offset = 315.0
 
 [node name="Earth" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Aarde"
 planet_radius = 2.611
 planet_height = 5.222
-planet_texture = "res://textures/earth.jpg"
-planet_extra = Array[PackedScene]([ExtResource("2")])
-planet_speed = 12.0
 planet_tilt = 23.4
+planet_texture = "res://textures/earth.jpg"
+planet_extra = Array[PackedScene]([ExtResource("6_5nw5a")])
 path_radius = 38.75
-orbit_speed = 4380.0
+planet_speed = 12.0
+orbit_speed = 44.0
 orbit_offset = 45.0
 
 [node name="Mars" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Mars"
 planet_radius = 1.39
 planet_height = 2.779
-planet_texture = "res://textures/mars.jpg"
-planet_speed = 12.36
 planet_tilt = 25.2
+planet_texture = "res://textures/mars.jpg"
 path_radius = 58.9
 path_tilt = 1.8
-orbit_speed = 8234.4
+planet_speed = 12.36
+orbit_speed = 82.0
 orbit_offset = 320.0
 
 [node name="Jupiter" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Jupiter"
 planet_radius = 21.491
 planet_height = 38.684
-planet_texture = "res://textures/jupiter.jpg"
-planet_speed = 4.98
 planet_tilt = 3.1
+planet_texture = "res://textures/jupiter.jpg"
 path_radius = 201.5
 path_tilt = 1.3
-orbit_speed = 52122.0
+planet_speed = 4.98
+orbit_speed = 521.0
 orbit_offset = 200.0
 
 [node name="Saturn" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Saturnus"
 planet_radius = 17.91
 planet_height = 32.238
-planet_texture = "res://textures/saturn.jpg"
-planet_extra = Array[PackedScene]([ExtResource("14_37cem")])
-planet_speed = 5.34
 planet_tilt = 26.7
+planet_texture = "res://textures/saturn.jpg"
+planet_extra = Array[PackedScene]([ExtResource("7_i7v1w")])
 path_radius = 370.84
 path_tilt = 2.5
-orbit_speed = 128772.0
+planet_speed = 5.34
+orbit_speed = 1288.0
 orbit_offset = 140.0
 
 [node name="Uranus" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Uranus"
 planet_radius = 10.395
 planet_height = 20.79
-planet_texture = "res://textures/uranus.jpg"
-planet_speed = 8.64
 planet_tilt = 97.8
+planet_texture = "res://textures/uranus.jpg"
 path_radius = 742.84
 path_tilt = 0.8
-orbit_speed = 366606.0
+planet_speed = 8.64
+orbit_speed = 3666.0
 orbit_offset = 225.0
 
 [node name="Neptune" type="Node3D" parent="."]
-script = ExtResource("5_70auu")
+script = ExtResource("4_bqnuc")
 planet_name = "Neptunus"
 planet_radius = 10.095
 planet_height = 20.19
-planet_texture = "res://textures/neptune.jpg"
-planet_speed = 8.08
 planet_tilt = 28.3
-planet_direction = -360
+planet_texture = "res://textures/neptune.jpg"
 path_radius = 1169.46
 path_tilt = 1.8
-orbit_speed = 717006.0
+planet_speed = 8.08
+orbit_speed = 7170.0
 orbit_offset = 175.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -194,6 +199,6 @@ omni_shadow_mode = 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kcred")
 
-[node name="Camera" parent="." instance=ExtResource("7_rng48")]
+[node name="Camera" parent="." instance=ExtResource("9_3lh1d")]
 
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

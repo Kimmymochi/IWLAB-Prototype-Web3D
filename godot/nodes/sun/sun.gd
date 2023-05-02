@@ -15,7 +15,7 @@ func _sun_animate():
 	if sun_tween:
 		sun_tween.kill()
 	sun_tween = create_tween().set_loops()
-#
+
 	sun_tween.tween_property(
 		$Sun, 
 		"rotation_degrees", 

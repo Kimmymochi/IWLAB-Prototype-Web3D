@@ -11,6 +11,7 @@ radius = 0.87
 height = 1.741
 
 [node name="Earth" type="Node3D"]
+visible = false
 
 [node name="Moon" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83678, 0)
