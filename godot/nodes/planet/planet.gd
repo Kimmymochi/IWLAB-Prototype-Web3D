@@ -34,8 +34,8 @@ func _ready():
 	
 	# make the path mesh
 	path_mesh = TorusMesh.new()
-#	path_mesh.inner_radius = path_radius - 0.05
-#	path_mesh.outer_radius = path_radius + 0.05
+	path_mesh.inner_radius = path_radius - 0.05
+	path_mesh.outer_radius = path_radius + 0.05
 #	path_mesh.flip_faces = true
 	
 	# make the path material
@@ -64,8 +64,7 @@ func _ready():
 	SolarSettings.speed_factor_updated.connect(_animate_orbit)
 	SolarSettings.planet_view_toggled.connect(_check_visibility)
 
-func _process(delta):
-	print(SolarSettings.global_camera.z_position)
+func _physics_process(delta):
 	path_mesh.inner_radius = path_radius - 0.001 * SolarSettings.global_camera.z_position
 	path_mesh.outer_radius = path_radius + 0.001 * SolarSettings.global_camera.z_position
 	
