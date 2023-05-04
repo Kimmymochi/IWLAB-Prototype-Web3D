@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 #@onready var planets = $WorldSphere/Sun/Planet/PlanetAnimate

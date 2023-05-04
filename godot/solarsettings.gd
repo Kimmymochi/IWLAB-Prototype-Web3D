@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 var speed_factor : float = 1:
