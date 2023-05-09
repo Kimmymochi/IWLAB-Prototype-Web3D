@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf2vnp4lrhklb"]
+[gd_scene load_steps=8 format=3 uid="uid://cf2vnp4lrhklb"]
 
+[ext_resource type="Script" path="res://nodes/planet/planet_extra/venus/venus_atmosphere.gd" id="1_k6fvw"]
 [ext_resource type="Texture2D" uid="uid://uoa2crmeeovt" path="res://textures/venus_atmosphere.jpg" id="2_5gtpp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67vs5"]
@@ -48,7 +49,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_rjaec"]
 resource_name = "spin"
-length = 50.4
+length = 1.38
 loop_mode = 1
 step = 0.5
 tracks/0/type = "value"
@@ -58,7 +59,7 @@ tracks/0/path = NodePath("Atmosphere:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 50.4),
+"times": PackedFloat32Array(0, 1.38),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -6.28319, 0), Vector3(0, 0, 0)]
@@ -70,10 +71,10 @@ tracks/1/path = NodePath("Atmosphere:mesh:material:albedo_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5, 25.2, 45.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1.38),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0.101961), Color(1, 1, 1, 0.960784)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tnvi4"]
@@ -83,6 +84,7 @@ _data = {
 }
 
 [node name="VenusAtmosphere" type="Node3D"]
+script = ExtResource("1_k6fvw")
 
 [node name="Atmosphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, -4.46638e-06, 0, 1, 0, 4.46638e-06, 0, 1, 0, 0, 0)

@@ -1,19 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciq76yytpf6hv"]
+[gd_scene load_steps=9 format=3 uid="uid://ciq76yytpf6hv"]
 
+[ext_resource type="Script" path="res://nodes/planet/planet_extra/earth/earth_moon.gd" id="1_41bgi"]
 [ext_resource type="Texture2D" uid="uid://c8t1n4e0iu6d" path="res://textures/moon.jpg" id="1_vav0f"]
+[ext_resource type="PackedScene" uid="uid://dtc7ruoqsvl20" path="res://nodes/camera/solarcamera.tscn" id="3_y7nx7"]
+[ext_resource type="PackedScene" uid="uid://bynhhy0qmy17n" path="res://nodes/label/solarlabel.tscn" id="4_rpaa7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfhmk"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_yu67o"]
+material = SubResource("StandardMaterial3D_mfhmk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxtf5"]
 albedo_texture = ExtResource("1_vav0f")
 
 [sub_resource type="SphereMesh" id="SphereMesh_mg7vq"]
 material = SubResource("StandardMaterial3D_kxtf5")
-radius = 0.87
-height = 1.741
+radius = 0.711
+height = 1.422
 
-[node name="Earth" type="Node3D"]
-visible = false
+[node name="Moon" type="Node3D"]
+script = ExtResource("1_41bgi")
 
-[node name="Moon" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83678, 0)
+[node name="Path" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_yu67o")
+
+[node name="Center" type="Node3D" parent="Path"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 0, 0, 0)
+
+[node name="Container" type="Node3D" parent="Path/Center"]
+
+[node name="Axis" type="Node3D" parent="Path/Center/Container"]
+
+[node name="Moon" type="MeshInstance3D" parent="Path/Center/Container/Axis"]
 mesh = SubResource("SphereMesh_mg7vq")
 skeleton = NodePath("")
+
+[node name="SolarCamera" parent="Path/Center/Container" instance=ExtResource("3_y7nx7")]
+
+[node name="MoonLabel" type="Node3D" parent="Path/Center/Container"]
+
+[node name="SolarLabel" parent="Path/Center/Container/MoonLabel" node_paths=PackedStringArray("target_node") instance=ExtResource("4_rpaa7")]
+label_text = "Maan"
+target_node = NodePath("..")

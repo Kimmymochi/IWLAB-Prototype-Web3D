@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://w6psintp0drs"]
+
+[ext_resource type="Texture2D" uid="uid://c31k11jcwkix8" path="res://icons/cog-custom.png" id="1_i0smw"]
+[ext_resource type="Script" path="res://nodes/settings/settings.gd" id="1_oei72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4dn1"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k22i"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.00392157, 0.164706, 0.364706, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dqxy"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.00392157, 0.164706, 0.364706, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ncds"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.498039)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmbmt"]
+bg_color = Color(0, 0, 0, 0.843137)
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_oei72")
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_t4dn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4k22i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dqxy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1ncds")
+toggle_mode = true
+icon = ExtResource("1_i0smw")
+icon_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Margin/VBox"]
+
+[node name="PanelContainer" type="PanelContainer" parent="Margin/VBox/CanvasLayer"]
+visible = false
+z_index = 1
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 1904.0
+offset_bottom = 1048.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jmbmt")
+
+[connection signal="toggled" from="Margin/VBox/HBox/Button" to="." method="_on_button_toggled"]

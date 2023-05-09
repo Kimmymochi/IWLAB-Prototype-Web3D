@@ -1,30 +1,21 @@
 @tool
 extends Node3D
 
-#@onready var planets = $WorldSphere/Sun/Planet/PlanetAnimate
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SolarSettings.global_camera = $Camera
+	SolarSettings.global_view = $ObjectView
+	$HSlider.value = SolarSettings.speed_factor
+	
+	SolarSettings.planet_view_toggled.connect(_h_slider_visibility)
 
 
-
-#func _on_Button_button_down():
-#
-#	pass # Replace with function body.
-#
-#
-#func _on_Button_toggled(button_pressed):
-#	if button_pressed:
-#		planets.play("spin")
-#		#$Earth.transform = rotateAround($Sun.transform, $Earth.transform)
-#
-#	else:
-#		planets.stop(false)
-#
-#	pass # Replace with function body.
-
-
+# Slider changes animation speeds
 func _on_h_slider_value_changed(value):
 	SolarSettings.speed_factor = value
-	pass # Replace with function body.
+
+
+func _h_slider_visibility():
+	$HSlider.visible = SolarSettings.in_planet_view == ""
+	

@@ -1,46 +1,32 @@
-[gd_scene load_steps=14 format=3 uid="uid://hsegmrgpsq6f"]
+[gd_scene load_steps=17 format=3 uid="uid://cpo2ib00fqohi"]
 
-[ext_resource type="PackedScene" uid="uid://djdc76ij1joyw" path="res://nodes/close/close.tscn" id="1_ygoom"]
+[ext_resource type="Script" path="res://solarsystem.gd" id="1_u671f"]
+[ext_resource type="PackedScene" uid="uid://cvddqevhqmvkm" path="res://nodes/objectview/objectview.tscn" id="1_ygoom"]
 [ext_resource type="PackedScene" uid="uid://ds82ut4jkmwtb" path="res://nodes/sun/sun.tscn" id="2_cisao"]
+[ext_resource type="PackedScene" uid="uid://w6psintp0drs" path="res://nodes/settings/settings.tscn" id="2_wsjbc"]
 [ext_resource type="PackedScene" uid="uid://bynhhy0qmy17n" path="res://nodes/label/solarlabel.tscn" id="3_nxmdc"]
 [ext_resource type="Script" path="res://nodes/planet/planet.gd" id="4_bqnuc"]
 [ext_resource type="PackedScene" uid="uid://cf2vnp4lrhklb" path="res://nodes/planet/planet_extra/venus/venus_atmosphere.tscn" id="5_bfrpu"]
-[ext_resource type="PackedScene" uid="uid://ciq76yytpf6hv" path="res://nodes/planet/planet_extra/earth/earth_moon.tscn" id="6_5nw5a"]
 [ext_resource type="PackedScene" uid="uid://1e0u62qci5yb" path="res://nodes/planet/planet_extra/saturn/saturn_rings.tscn" id="7_i7v1w"]
 [ext_resource type="Texture2D" uid="uid://cqwwunw3e3lgg" path="res://textures/stars_big.jpg" id="8_bfggo"]
 [ext_resource type="PackedScene" uid="uid://dtc7ruoqsvl20" path="res://nodes/camera/solarcamera.tscn" id="9_3lh1d"]
 
-[sub_resource type="GDScript" id="GDScript_8susp"]
-script/source = "extends Node3D
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oocsn"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0117647, 0.254902, 0.541176, 1)
 
-#@onready var planets = $WorldSphere/Sun/Planet/PlanetAnimate
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drhm5"]
+bg_color = Color(0.839216, 0.933333, 0.972549, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	SolarSettings.global_camera = $Camera
-
-
-
-#func _on_Button_button_down():
-#
-#	pass # Replace with function body.
-#
-#
-#func _on_Button_toggled(button_pressed):
-#	if button_pressed:
-#		planets.play(\"spin\")
-#		#$Earth.transform = rotateAround($Sun.transform, $Earth.transform)
-#
-#	else:
-#		planets.stop(false)
-#
-#	pass # Replace with function body.
-
-
-func _on_h_slider_value_changed(value):
-	SolarSettings.speed_factor = value
-	pass # Replace with function body.
-"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nps78"]
+bg_color = Color(0.00392157, 0.164706, 0.364706, 0.894118)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g2knv"]
 panorama = ExtResource("8_bfggo")
@@ -61,29 +47,42 @@ glow_strength = 1.19
 glow_blend_mode = 0
 
 [node name="SolarSystem" type="Node3D"]
-script = SubResource("GDScript_8susp")
+script = ExtResource("1_u671f")
 
-[node name="Close" parent="." instance=ExtResource("1_ygoom")]
+[node name="Settings" parent="." instance=ExtResource("2_wsjbc")]
+
+[node name="ObjectView" parent="." instance=ExtResource("1_ygoom")]
 
 [node name="HSlider" type="HSlider" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -202.0
-offset_bottom = 45.0
-grow_horizontal = 0
-min_value = 0.1
-max_value = 5.0
-value = 0.1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = -45.0
+offset_right = 101.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_oocsn")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_drhm5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_nps78")
+min_value = 0.001
+max_value = 10.0
+step = 0.01
+value = 1.001
 
 [node name="Sun" parent="." instance=ExtResource("2_cisao")]
+sun_name = "Zon"
+sun_description = "De zon geeft ons warmte en licht. 
+Hoe werkt dat? En hoe groot is de zon eigenlijk?"
 
 [node name="SunLabel" type="Node3D" parent="Sun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5477, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.5197, 0)
 
 [node name="SolarLabel" parent="Sun/SunLabel" node_paths=PackedStringArray("target_node") instance=ExtResource("3_nxmdc")]
 label_text = "Zon"
-target_node = NodePath("../..")
+target_node = NodePath("..")
 
 [node name="Mercurius" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
@@ -92,10 +91,14 @@ planet_radius = 1.0
 planet_height = 2.0
 planet_tilt = 0.003
 planet_texture = "res://textures/mercury.jpg"
-path_radius = 14.99
+planet_description = "Mercurius is de kleinste planeet in het zonnestelsel. 
+Maar zeker niet de minst interessante! 
+Wat maakt Mercurius uniek?
+"
+path_radius = 0.387
 path_tilt = 7.0
-planet_speed = 705.6
-orbit_speed = 10.0
+planet_ratio = 58.8
+orbit_ratio = 0.241
 orbit_offset = 15.0
 
 [node name="Venus" type="Node3D" parent="."]
@@ -106,89 +109,105 @@ planet_height = 4.96
 planet_tilt = 177.4
 planet_texture = "res://textures/venus.jpg"
 planet_extra = Array[PackedScene]([ExtResource("5_bfrpu")])
-path_radius = 28.02
+planet_description = "Venus is een planeet die eigenlijk best wel veel lijkt op de aarde, maar het is er ontzettend warm!"
+path_radius = 0.723
 path_tilt = 3.4
-planet_speed = 2928.0
-orbit_speed = 27.0
+planet_ratio = 244.0
+orbit_ratio = 0.615
 orbit_offset = 315.0
 
 [node name="Earth" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Aarde"
 planet_radius = 2.611
-planet_height = 5.222
+planet_height = 5.38
 planet_tilt = 23.4
 planet_texture = "res://textures/earth.jpg"
-planet_extra = Array[PackedScene]([ExtResource("6_5nw5a")])
-path_radius = 38.75
-planet_speed = 12.0
-orbit_speed = 44.0
+planet_description = "De aarde ziet er vanuit de hemel blauw uit. 
+Dit komt door al het water wat er op aarde is. 
+Dat is heel bijzonder in de ruimte! 
+Of is onze blauwe planeet eigenlijk een groene?"
+path_radius = 1.0
+planet_ratio = 1.0
+orbit_ratio = 1.0
 orbit_offset = 45.0
 
 [node name="Mars" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Mars"
 planet_radius = 1.39
-planet_height = 2.779
+planet_height = 2.76
 planet_tilt = 25.2
 planet_texture = "res://textures/mars.jpg"
-path_radius = 58.9
+planet_description = "Mars is onze buurplaneet, hij staat naast de aarde. 
+Waarom is hij rood? En wat weten we er nog meer van?"
+path_radius = 1.52
 path_tilt = 1.8
-planet_speed = 12.36
-orbit_speed = 82.0
+planet_ratio = 1.03
+orbit_ratio = 1.88
 orbit_offset = 320.0
 
 [node name="Jupiter" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Jupiter"
-planet_radius = 21.491
-planet_height = 38.684
+planet_radius = 29.26
+planet_height = 54.5
 planet_tilt = 3.1
 planet_texture = "res://textures/jupiter.jpg"
-path_radius = 201.5
+planet_description = "Jupiter is de allergrootste planeet in het zonnestelsel. 
+
+Hoe groot precies? Waar is hij? 
+En wat is er zo speciaal aan de planeet?"
+path_radius = 5.2
 path_tilt = 1.3
-planet_speed = 4.98
-orbit_speed = 521.0
+planet_ratio = 0.415
+orbit_ratio = 11.9
 orbit_offset = 200.0
 
 [node name="Saturn" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Saturnus"
-planet_radius = 17.91
-planet_height = 32.238
+planet_radius = 24.67
+planet_height = 44.07
 planet_tilt = 26.7
 planet_texture = "res://textures/saturn.jpg"
 planet_extra = Array[PackedScene]([ExtResource("7_i7v1w")])
-path_radius = 370.84
+planet_description = "De planeet Saturnus staat bekend om zijn ringen, maar wist je dat het er heel hard kan waaien? 
+En dat hij kan drijven in water?"
+path_radius = 9.57
 path_tilt = 2.5
-planet_speed = 5.34
-orbit_speed = 1288.0
+planet_ratio = 0.445
+orbit_ratio = 29.4
 orbit_offset = 140.0
 
 [node name="Uranus" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Uranus"
-planet_radius = 10.395
-planet_height = 20.79
+planet_radius = 10.47
+planet_height = 20.46
 planet_tilt = 97.8
 planet_texture = "res://textures/uranus.jpg"
-path_radius = 742.84
+planet_description = "Uranus kunnen we vanaf de aarde niet zien, omdat hij zo ver weg staat. 
+Toch weten we al veel interessante dingen over deze planeet."
+path_radius = 19.17
 path_tilt = 0.8
-planet_speed = 8.64
-orbit_speed = 3666.0
+planet_ratio = 0.72
+orbit_ratio = 83.7
 orbit_offset = 225.0
 
 [node name="Neptune" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Neptunus"
-planet_radius = 10.095
-planet_height = 20.19
+planet_radius = 10.13
+planet_height = 19.92
 planet_tilt = 28.3
 planet_texture = "res://textures/neptune.jpg"
-path_radius = 1169.48
+planet_description = "De planeet die het meest ver staat in ons zonnestelsel, is Neptunus. Vroeger wisten ze niet eens dat hij bestond. 
+Wat weten we er nu van?"
+path_radius = 30.18
 path_tilt = 1.8
-planet_speed = 8.08
-orbit_speed = 7170.0
+planet_ratio = 0.673
+orbit_ratio = 163.7
 orbit_offset = 175.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

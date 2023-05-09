@@ -1,7 +1,7 @@
 extends Node3D
 class_name SolarCamera
 
-@onready var camera : Camera3D = $Horizontal/Vertical/Camera3D
+@onready var camera : Camera3D = $Horizontal/Vertical/Camera
 
 var dragging = false
 var zooming = false
@@ -23,7 +23,7 @@ var z_position = 35
 var z_sensitivity = 0.01
 var z_speed = 5
 var z_min = 20
-var z_max = 1500
+var z_max = 2000
 
 # variables for touch inputs
 var events = {}
@@ -50,9 +50,9 @@ func _unhandled_input(event):
 
 	if event is InputEventMouseMotion and dragging:
 		_change_cam_rotation(event)
-	
-	
-		
+
+
+
 	# TOUCH EVENTS
 	# -------------------------------
 	if event is InputEventScreenTouch:
@@ -74,10 +74,13 @@ func _unhandled_input(event):
 				last_drag_distance = drag_distance
 				
 
+
+# change the horizontal & vertical position of camera after input
 func _change_cam_rotation(event):
 		h_rotation += -event.relative.x * h_sensitivity
 		v_rotation += -event.relative.y * v_sensitivity
 
+# change the zoom position of camera after input
 func _change_cam_zoom(direction, multiplier):
 		if direction == "IN":
 			z_position -= camera.position.z * z_sensitivity * multiplier
@@ -86,13 +89,15 @@ func _change_cam_zoom(direction, multiplier):
 
 
 func _physics_process(delta):
+	# limit zoom position
 	z_position = clamp(z_position, z_min, z_max)
+	
+	# move and ease the zoom position
 	camera.position.z = lerpf(
 		camera.position.z, 
 		z_position, 
 		delta * z_speed
 	)
-
 
 	# tween setup: kill previous and create new one
 	var tween
@@ -119,6 +124,7 @@ func _physics_process(delta):
 		delta * v_speed
 	)
 
+# change camera
 func change_current():
 	get_viewport().get_camera_3d().current = false
 	camera.current = true

@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var distance = target_node.global_position.distance_to(get_viewport().get_camera_3d().global_position) - (object_radius * 8)
 
 	position = get_viewport().get_camera_3d().unproject_position(target_node.global_position)
