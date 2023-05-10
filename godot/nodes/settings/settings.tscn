@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://w6psintp0drs"]
+[gd_scene load_steps=12 format=3 uid="uid://w6psintp0drs"]
 
-[ext_resource type="Texture2D" uid="uid://c31k11jcwkix8" path="res://icons/cog-custom.png" id="1_i0smw"]
 [ext_resource type="Script" path="res://nodes/settings/settings.gd" id="1_oei72"]
+[ext_resource type="Texture2D" uid="uid://blvo3i4y66aoj" path="res://icons/settings.svg" id="2_w3fqe"]
+[ext_resource type="FontFile" uid="uid://blcoohqpfdsmy" path="res://fonts/CPCompanyTTBold.ttf" id="3_ef57i"]
+[ext_resource type="FontFile" uid="uid://co5ck2534000h" path="res://fonts/CPCompanyTTRegular.ttf" id="4_il28y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdbfy"]
+bg_color = Color(0, 0, 0, 0.87451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4dn1"]
 content_margin_left = 8.0
@@ -52,52 +57,134 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmbmt"]
-bg_color = Color(0, 0, 0, 0.843137)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ailhx"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_bottom = 36.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1by6s"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="Settings" type="Node"]
 script = ExtResource("1_oei72")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Background" type="Panel" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdbfy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
 
-[node name="VBox" type="VBoxContainer" parent="Margin"]
-layout_mode = 2
-
-[node name="HBox" type="HBoxContainer" parent="Margin/VBox"]
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/Margin"]
 layout_mode = 2
 alignment = 2
 
-[node name="Button" type="Button" parent="Margin/VBox/HBox"]
+[node name="Button" type="Button" parent="VBoxContainer/Margin/HBox"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_t4dn1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4k22i")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7dqxy")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1ncds")
 toggle_mode = true
-icon = ExtResource("1_i0smw")
+icon = ExtResource("2_w3fqe")
 icon_alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Margin/VBox"]
-
-[node name="PanelContainer" type="PanelContainer" parent="Margin/VBox/CanvasLayer"]
+[node name="SettingsBox" type="MarginContainer" parent="VBoxContainer"]
 visible = false
-z_index = 1
-offset_left = 16.0
-offset_top = 112.0
-offset_right = 1904.0
-offset_bottom = 1048.0
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_jmbmt")
+layout_mode = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_right = 500
 
-[connection signal="toggled" from="Margin/VBox/HBox/Button" to="." method="_on_button_toggled"]
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/SettingsBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer/SettingsBox/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ailhx")
+
+[node name="Settings" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Header"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("3_ef57i")
+theme_override_font_sizes/normal_font_size = 50
+text = "Settings"
+fit_content = true
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/SettingsBox/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1by6s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SettingsBox/VBox/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 103
+
+[node name="Full Screen" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_font_sizes/normal_font_size = 50
+text = "Full Screen
+"
+fit_content = true
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Dyslexie" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_font_sizes/normal_font_size = 50
+text = "Dyselxie Lettertype"
+fit_content = true
+
+[node name="CheckButton2" type="CheckButton" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[connection signal="toggled" from="VBoxContainer/Margin/HBox/Button" to="." method="_on_button_toggled"]

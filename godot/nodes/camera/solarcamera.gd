@@ -15,15 +15,15 @@ var h_speed = 30
 var v_rotation = -20
 var v_sensitivity = 0.1
 var v_speed = 30
-var v_min = -55
-var v_max = 75
+var v_min = -85
+var v_max = 85
 
 # variables changing camera z position (zoom)
-var z_position = 35
+var z_position = 80
 var z_sensitivity = 0.01
 var z_speed = 5
-var z_min = 20
-var z_max = 2000
+var z_min = 30
+var z_max = 2500
 
 # variables for touch inputs
 var events = {}

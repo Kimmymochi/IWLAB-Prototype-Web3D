@@ -23,8 +23,9 @@ var in_planet_view : String = "":
 		in_planet_view = value
 		planet_view_toggled.emit()
 		speed_factor_updated.emit()
-		
-		
+
+
+
 
 var global_camera : SolarCamera
 var global_view : ObjectView

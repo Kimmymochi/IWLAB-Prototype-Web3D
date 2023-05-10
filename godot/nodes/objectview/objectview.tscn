@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cvddqevhqmvkm"]
 
 [ext_resource type="Script" path="res://nodes/objectview/objectview.gd" id="1_5hgt4"]
-[ext_resource type="Texture2D" uid="uid://dghxafjsggs0n" path="res://icons/arrow-u-left-top-custom.png" id="2_pxnen"]
+[ext_resource type="Texture2D" uid="uid://bl286ecmtxr10" path="res://icons/return.svg" id="2_aowjx"]
 [ext_resource type="FontFile" uid="uid://blcoohqpfdsmy" path="res://fonts/CPCompanyTTBold.ttf" id="3_6v6xa"]
 [ext_resource type="FontFile" uid="uid://co5ck2534000h" path="res://fonts/CPCompanyTTRegular.ttf" id="4_5rnl0"]
 [ext_resource type="VideoStream" path="res://videos/aarde.ogv" id="5_tts7y"]
@@ -87,7 +87,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_c4x2d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_li2mm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_li2mm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_iob07")
-icon = ExtResource("2_pxnen")
+icon = ExtResource("2_aowjx")
 icon_alignment = 1
 
 [node name="Name" type="RichTextLabel" parent="Margin/VBox/HSplit"]
