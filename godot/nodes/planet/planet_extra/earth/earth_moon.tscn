@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciq76yytpf6hv"]
+[gd_scene load_steps=8 format=3 uid="uid://ciq76yytpf6hv"]
 
 [ext_resource type="Script" path="res://nodes/planet/planet_extra/earth/earth_moon.gd" id="1_41bgi"]
 [ext_resource type="Texture2D" uid="uid://c8t1n4e0iu6d" path="res://textures/moon.jpg" id="1_vav0f"]
-[ext_resource type="PackedScene" uid="uid://dtc7ruoqsvl20" path="res://nodes/camera/solarcamera.tscn" id="3_y7nx7"]
 [ext_resource type="PackedScene" uid="uid://bynhhy0qmy17n" path="res://nodes/label/solarlabel.tscn" id="4_rpaa7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfhmk"]
@@ -20,6 +19,9 @@ height = 1.422
 
 [node name="Moon" type="Node3D"]
 script = ExtResource("1_41bgi")
+moon_name = "Maan"
+moon_description = "De aarde heeft een maan, die de mensen vroeger al bijzonder vonden. Hoe ver staat hij? 
+En hoe is het om er rond te lopen?"
 
 [node name="Path" type="MeshInstance3D" parent="."]
 mesh = SubResource("TorusMesh_yu67o")
@@ -35,10 +37,10 @@ transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 
 mesh = SubResource("SphereMesh_mg7vq")
 skeleton = NodePath("")
 
-[node name="SolarCamera" parent="Path/Center/Container" instance=ExtResource("3_y7nx7")]
-
 [node name="MoonLabel" type="Node3D" parent="Path/Center/Container"]
 
 [node name="SolarLabel" parent="Path/Center/Container/MoonLabel" node_paths=PackedStringArray("target_node") instance=ExtResource("4_rpaa7")]
+visible = false
 label_text = "Maan"
 target_node = NodePath("..")
+inside_view_label = true

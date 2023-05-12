@@ -62,6 +62,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="ObjectView" type="Node2D"]
+visible = false
 script = ExtResource("1_5hgt4")
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -98,7 +99,7 @@ theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.254902, 0.541176, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("3_6v6xa")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
 text = "Mercurius"
 fit_content = true
@@ -116,7 +117,7 @@ size_flags_vertical = 4
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_5rnl0")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 35
 text = "Informatie over de planeet komt in dit vakje te staan heel nice jippieee
 Nog een zin hier om te kijken hoe het eruit ziet.
 Ja ziet er prima uit"

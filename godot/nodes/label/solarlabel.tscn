@@ -54,7 +54,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0j0h0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nhk4x")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nhk4x")
 theme_override_styles/focus = SubResource("StyleBoxFlat_f66jj")
-text = "ZON"
+text = "PLANEETNAAM"
 icon_alignment = 1
 
 [connection signal="pressed" from="CenterContainer/Button" to="." method="_on_button_pressed"]

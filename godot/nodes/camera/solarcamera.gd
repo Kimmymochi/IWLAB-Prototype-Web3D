@@ -29,49 +29,49 @@ var z_max = 2500
 var events = {}
 var last_drag_distance = 0
 
-
 func _unhandled_input(event):
 	
-	# MOUSE EVENTS
-	# -------------------------------
-	if event is InputEventMouseButton:
-		if event.is_pressed():
-			match event.button_index:
-				MOUSE_BUTTON_LEFT:
-					dragging = true
-				MOUSE_BUTTON_WHEEL_UP:
-					_change_cam_zoom("IN", 10)
+	if !SolarSettings.in_settings_view:
+	
+		# MOUSE EVENTS
+		# -------------------------------
+		if event is InputEventMouseButton:
+			if event.is_pressed():
+				match event.button_index:
+					MOUSE_BUTTON_LEFT:
+						dragging = true
+					MOUSE_BUTTON_WHEEL_UP:
+						_change_cam_zoom("IN", 10)
 
-				MOUSE_BUTTON_WHEEL_DOWN:
-					_change_cam_zoom("OUT", 20)
-					
-		else:
-			dragging = false
+					MOUSE_BUTTON_WHEEL_DOWN:
+						_change_cam_zoom("OUT", 20)
+						
+			else:
+				dragging = false
 
-	if event is InputEventMouseMotion and dragging:
-		_change_cam_rotation(event)
-
-
-
-	# TOUCH EVENTS
-	# -------------------------------
-	if event is InputEventScreenTouch:
-		if event.pressed:
-			events[event.index] = event
-		else:
-			events.erase(event.index)
-
-	if event is InputEventScreenDrag:
-		events[event.index] = event
-
-		if events.size() == 1:
+		if event is InputEventMouseMotion and dragging:
 			_change_cam_rotation(event)
 
-		elif events.size() == 2:
-			var drag_distance = events.values()[0].position.distance_to(events.values()[1].position)
-			if abs(drag_distance - last_drag_distance) > z_sensitivity:
-				_change_cam_zoom("OUT", 2) if drag_distance < last_drag_distance else _change_cam_zoom("IN", 1)
-				last_drag_distance = drag_distance
+
+		# TOUCH EVENTS
+		# -------------------------------
+		if event is InputEventScreenTouch:
+			if event.pressed:
+				events[event.index] = event
+			else:
+				events.erase(event.index)
+
+		if event is InputEventScreenDrag:
+			events[event.index] = event
+
+			if events.size() == 1:
+				_change_cam_rotation(event)
+
+			elif events.size() == 2:
+				var drag_distance = events.values()[0].position.distance_to(events.values()[1].position)
+				if abs(drag_distance - last_drag_distance) > z_sensitivity:
+					_change_cam_zoom("OUT", 2) if drag_distance < last_drag_distance else _change_cam_zoom("IN", 1)
+					last_drag_distance = drag_distance
 				
 
 
@@ -128,4 +128,3 @@ func _physics_process(delta):
 func change_current():
 	get_viewport().get_camera_3d().current = false
 	camera.current = true
-

@@ -18,4 +18,3 @@ func _on_h_slider_value_changed(value):
 
 func _h_slider_visibility():
 	$HSlider.visible = SolarSettings.in_planet_view == ""
-	

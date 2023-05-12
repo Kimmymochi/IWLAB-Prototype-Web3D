@@ -1,0 +1,238 @@
+[gd_scene load_steps=16 format=3 uid="uid://fgffng56ca1l"]
+
+[ext_resource type="Script" path="res://nodes/settings/settingsview.gd" id="1_5twfp"]
+[ext_resource type="Texture2D" uid="uid://blvo3i4y66aoj" path="res://icons/settings.svg" id="2_w3fqe"]
+[ext_resource type="FontFile" uid="uid://blcoohqpfdsmy" path="res://fonts/CPCompanyTTBold.ttf" id="3_ef57i"]
+[ext_resource type="FontFile" uid="uid://co5ck2534000h" path="res://fonts/CPCompanyTTRegular.ttf" id="4_il28y"]
+[ext_resource type="Texture2D" uid="uid://b54gf50uvxega" path="res://icons/toggle_on.svg" id="5_55scg"]
+[ext_resource type="Texture2D" uid="uid://dbp8krk41nmsb" path="res://icons/toggle_off.svg" id="6_ps4v4"]
+[ext_resource type="Texture2D" uid="uid://dwsbghoblucjm" path="res://icons/fullscreen.svg" id="7_4hqyl"]
+[ext_resource type="Texture2D" uid="uid://bywxs27hl1hqs" path="res://icons/font.svg" id="8_8ml68"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdbfy"]
+bg_color = Color(0, 0, 0, 0.87451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4dn1"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k22i"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.00392157, 0.164706, 0.364706, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dqxy"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.00392157, 0.164706, 0.364706, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ncds"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.498039)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ailhx"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_bottom = 36.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1by6s"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_5twfp")
+
+[node name="Background" type="Panel" parent="."]
+visible = false
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdbfy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/Margin"]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Margin/HBox"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_t4dn1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4k22i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7dqxy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1ncds")
+toggle_mode = true
+icon = ExtResource("2_w3fqe")
+icon_alignment = 1
+
+[node name="SettingsBox" type="MarginContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_right = 500
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/SettingsBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer/SettingsBox/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ailhx")
+
+[node name="Settings" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Header"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("3_ef57i")
+theme_override_font_sizes/normal_font_size = 55
+text = "Settings"
+fit_content = true
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/SettingsBox/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1by6s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SettingsBox/VBox/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="FSText" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_font_sizes/normal_font_size = 35
+text = "Full Screen
+"
+fit_content = true
+
+[node name="FullScreen" type="CheckButton" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_pressed_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_focus_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/font = ExtResource("4_il28y")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/checked = ExtResource("5_55scg")
+theme_override_icons/checked_disabled = ExtResource("5_55scg")
+theme_override_icons/unchecked = ExtResource("6_ps4v4")
+theme_override_icons/unchecked_disabled = ExtResource("6_ps4v4")
+text = "  "
+icon = ExtResource("7_4hqyl")
+
+[node name="DFText" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_font_sizes/normal_font_size = 35
+text = "Dyslexie Lettertype"
+fit_content = true
+
+[node name="DyslexiaFont" type="CheckButton" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_pressed_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_hover_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_colors/font_focus_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/font = ExtResource("4_il28y")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/checked = ExtResource("5_55scg")
+theme_override_icons/checked_disabled = ExtResource("5_55scg")
+theme_override_icons/unchecked = ExtResource("6_ps4v4")
+theme_override_icons/unchecked_disabled = ExtResource("6_ps4v4")
+text = "  "
+icon = ExtResource("8_8ml68")
+
+[node name="Warning" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[b]Let op![/b] 
+De planeten die je ziet zijn in het echt véél kleiner."
+fit_content = true
+
+[node name="Copyright" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_font_sizes/normal_font_size = 15
+text = "Copyright (c) Solar Textures / Solar System Scope / CC-BY 4.0"
+fit_content = true
+
+[connection signal="toggled" from="VBoxContainer/Margin/HBox/Button" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer/FullScreen" to="." method="_on_full_screen_toggled"]

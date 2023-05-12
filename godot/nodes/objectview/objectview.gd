@@ -7,30 +7,9 @@ signal close_clicked
 @onready var player = $Margin/VBox/VideoPanel/Ratio/Video
 @onready var play_button = $Margin/VBox/VideoPanel/Ratio/Play
 
-func _on_button_pressed():
-	close_clicked.emit()
-	_on_video_stream_player_finished()
-	
-	show_view(false)
-	SolarSettings.in_planet_view = ""
-	SolarSettings.global_camera.change_current()
-
-
-func show_view(view_visible : bool):
-	visible = view_visible
-
-func fill_view(object_name, object_description):
-	$Margin/VBox/HSplit/Name.text = object_name
-	$Margin/VBox/TextPanel/Description.text = object_description
-	
-	var video_name = object_name.to_lower()
-	player.stream = load("res://videos/" + video_name + ".ogv")
-
-
-func full_video():
-	$Margin/VBox/TextPanel.visible = false
-	player.expand = false
-	
+func _ready():
+	SolarSettings.settings_view_toggled.connect(_toggle_interaction)
+	SolarSettings.planet_view_toggled.connect(_on_video_stream_player_finished)
 
 
 func _on_video_stream_player_finished():
@@ -51,3 +30,36 @@ func _on_play_pressed():
 		player.paused = false
 		player.play() 
 		play_button.modulate = Color(0,0,0,0)
+
+
+func _on_button_pressed():
+	close_clicked.emit()
+	_on_video_stream_player_finished()
+	
+	show_view(false)
+	SolarSettings.in_planet_view = ""
+	SolarSettings.global_camera.change_current()
+
+
+func _toggle_interaction():
+	if SolarSettings.in_settings_view:
+		$Margin.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		$Margin.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func show_view(view_visible : bool):
+	visible = view_visible
+
+
+func fill_view(object_name, object_description):
+	$Margin/VBox/HSplit/Name.text = object_name
+	$Margin/VBox/TextPanel/Description.text = object_description
+	
+	var video_name = object_name.to_lower()
+	player.stream = load("res://videos/" + video_name + ".ogv")
+
+
+func full_video():
+	$Margin/VBox/TextPanel.visible = false
+	player.expand = false

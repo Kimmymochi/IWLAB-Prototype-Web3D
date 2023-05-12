@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpo2ib00fqohi"]
+[gd_scene load_steps=18 format=3 uid="uid://b8pwmbm1xubxe"]
 
 [ext_resource type="Script" path="res://solarsystem.gd" id="1_u671f"]
 [ext_resource type="PackedScene" uid="uid://cvddqevhqmvkm" path="res://nodes/objectview/objectview.tscn" id="1_ygoom"]
 [ext_resource type="PackedScene" uid="uid://ds82ut4jkmwtb" path="res://nodes/sun/sun.tscn" id="2_cisao"]
-[ext_resource type="PackedScene" uid="uid://w6psintp0drs" path="res://nodes/settings/settings.tscn" id="2_wsjbc"]
+[ext_resource type="PackedScene" uid="uid://fgffng56ca1l" path="res://nodes/settings/settingsview.tscn" id="2_wsjbc"]
 [ext_resource type="PackedScene" uid="uid://bynhhy0qmy17n" path="res://nodes/label/solarlabel.tscn" id="3_nxmdc"]
 [ext_resource type="Script" path="res://nodes/planet/planet.gd" id="4_bqnuc"]
 [ext_resource type="PackedScene" uid="uid://cf2vnp4lrhklb" path="res://nodes/planet/planet_extra/venus/venus_atmosphere.tscn" id="5_bfrpu"]
 [ext_resource type="PackedScene" uid="uid://1e0u62qci5yb" path="res://nodes/planet/planet_extra/saturn/saturn_rings.tscn" id="7_i7v1w"]
 [ext_resource type="Texture2D" uid="uid://cqwwunw3e3lgg" path="res://textures/stars_big.jpg" id="8_bfggo"]
+[ext_resource type="PackedScene" uid="uid://ciq76yytpf6hv" path="res://nodes/planet/planet_extra/earth/earth_moon.tscn" id="8_jr7xr"]
 [ext_resource type="PackedScene" uid="uid://dtc7ruoqsvl20" path="res://nodes/camera/solarcamera.tscn" id="9_3lh1d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oocsn"]
@@ -39,12 +40,10 @@ background_mode = 2
 sky = SubResource("Sky_dm6al")
 sky_custom_fov = 90.0
 ambient_light_source = 2
-ambient_light_color = Color(0.776471, 0.776471, 0.776471, 1)
+ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.15
 glow_enabled = true
-glow_intensity = 5.1
-glow_strength = 1.19
-glow_blend_mode = 0
+glow_blend_mode = 4
 
 [node name="SolarSystem" type="Node3D"]
 script = ExtResource("1_u671f")
@@ -108,13 +107,13 @@ planet_radius = 2.48
 planet_height = 4.96
 planet_tilt = 177.4
 planet_texture = "res://textures/venus.jpg"
-planet_extra = Array[PackedScene]([ExtResource("5_bfrpu")])
 planet_description = "Venus is een planeet die eigenlijk best wel veel lijkt op de aarde, maar het is er ontzettend warm!"
 path_radius = 0.723
 path_tilt = 3.4
 planet_ratio = 244.0
 orbit_ratio = 0.615
 orbit_offset = 315.0
+planet_extra = Array[PackedScene]([ExtResource("5_bfrpu")])
 
 [node name="Earth" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
@@ -131,6 +130,7 @@ path_radius = 1.0
 planet_ratio = 1.0
 orbit_ratio = 1.0
 orbit_offset = 45.0
+planet_moon = Array[PackedScene]([ExtResource("8_jr7xr")])
 
 [node name="Mars" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
@@ -171,7 +171,6 @@ planet_radius = 24.67
 planet_height = 44.07
 planet_tilt = 26.7
 planet_texture = "res://textures/saturn.jpg"
-planet_extra = Array[PackedScene]([ExtResource("7_i7v1w")])
 planet_description = "De planeet Saturnus staat bekend om zijn ringen, maar wist je dat het er heel hard kan waaien? 
 En dat hij kan drijven in water?"
 path_radius = 9.57
@@ -179,6 +178,7 @@ path_tilt = 2.5
 planet_ratio = 0.445
 orbit_ratio = 29.4
 orbit_offset = 140.0
+planet_extra = Array[PackedScene]([ExtResource("7_i7v1w")])
 
 [node name="Uranus" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")

@@ -10,7 +10,6 @@ extends Node3D
 @export var planet_height: float
 @export var planet_tilt: float
 @export_file("*.jpg") var planet_texture
-@export var planet_extra: Array[PackedScene]
 @export_multiline var planet_description: String
 
 @export_group("Orbit Path")
@@ -22,12 +21,20 @@ extends Node3D
 @export var orbit_ratio: float
 @export var orbit_offset: float
 
+@export_group("Extras")
+@export var planet_extra: Array[PackedScene]
+@export var planet_moon: Array[PackedScene]
+
+
 var center
 var planet
 var path_mesh : TorusMesh
 var path_material : BaseMaterial3D
 var solar_camera
 var view
+
+
+	
 
 func _ready():
 	var path = MeshInstance3D.new()
@@ -90,19 +97,21 @@ func _make_planet() -> Node3D:
 	# add extra scenes to planet
 	for scene in planet_extra:
 		planet.add_child(scene.instantiate())
+		
+	for scene in planet_moon:
+		planet_container.add_child(scene.instantiate())
 	
 	# create node to tilt the planet axis
 	var planet_axis = Node3D.new()
 	planet_axis.add_child(planet)
 	planet_axis.rotation_degrees.z = planet_tilt
-	planet_container.add_child(planet_axis)
+	planet_container.add_child(planet_axis, true)
 	
 	# add camera
 	solar_camera = load("res://nodes/camera/solarcamera.tscn").instantiate()
 	planet_container.add_child(solar_camera)
 	
 
-	
 	# add name label
 	planet_container.add_child(_make_label())
 	
