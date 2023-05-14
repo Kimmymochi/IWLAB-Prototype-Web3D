@@ -87,16 +87,20 @@ func _check_visibility():
 	
 	match SolarSettings.in_planet_view:
 		"":
+			print("empty")
 			visible = true
+			solar_label.visible = false
 			parent_label.inside_view_label = false
 			parent_label.visible = true
 			
 		"Aarde":
+			print("earth")
 			visible = true
 			solar_label.visible = true
 			parent_label.inside_view_label = false
 			parent_label.visible = false
 		"Maan":
+			print("moon")
 			visible = true
 			parent.visible = true
 			solar_label.visible = false
@@ -104,6 +108,9 @@ func _check_visibility():
 			parent_label.visible = true
 			
 		_: 
+			print("any")
 			visible = false
+			parent.visible = false
+			solar_label.visible = false
 			parent_label.inside_view_label = false
 			parent_label.visible = false
