@@ -42,6 +42,7 @@ script = ExtResource("1_u671f")
 sun_name = "Zon"
 sun_description = "De zon geeft ons warmte en licht. 
 Hoe werkt dat? En hoe groot is de zon eigenlijk?"
+sun_id = "WO_NTR_790182"
 
 [node name="SunLabel" type="Node3D" parent="Sun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.5197, 0)

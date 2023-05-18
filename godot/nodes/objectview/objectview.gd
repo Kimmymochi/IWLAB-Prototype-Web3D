@@ -60,13 +60,19 @@ func fill_view(object_name, object_description, object_id):
 	
 	if OS.get_name() != 'Web':
 		var video_name = object_name.to_lower()
+		play_button.visible = true
 		player.stream = load("res://videos/" + video_name + ".ogv")
-#
-	await player.draw
-	await player.draw
+
 	
+	VideoPlayer.show_video(object_id, get_video_rect())
+	await player.draw 
+	VideoPlayer.resize_video(get_video_rect())
+	await player.draw 
+	VideoPlayer.resize_video(get_video_rect())
 	
-	var rect = Rect2(
+
+func get_video_rect():
+	return Rect2(
 		Vector2(
 			player.get_global_rect().position.x / get_viewport_rect().size.x * 100, 
 			player.get_global_rect().position.y / get_viewport_rect().size.y * 100),
@@ -75,11 +81,6 @@ func fill_view(object_name, object_description, object_id):
 			player.get_global_rect().size.y / get_viewport_rect().size.y * 100
 			)
 	)
-	
-	VideoPlayer.show_video(object_id, rect)
-	
-
-
 
 func full_video():
 	$Margin/VBox/TextPanel.visible = false

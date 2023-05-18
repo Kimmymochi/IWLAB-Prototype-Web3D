@@ -166,6 +166,7 @@ layout_mode = 2
 expand = true
 
 [node name="Play" type="Button" parent="Margin/VBox/VideoPanel/Ratio"]
+visible = false
 layout_mode = 2
 toggle_mode = true
 text = "

@@ -1,6 +1,6 @@
 extends Node
 
-const player_html = '<iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen> </iframe>'
+const player_html = '<iframe credentialless src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen> </iframe>'
 var video_source = ""
 
 
