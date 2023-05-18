@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: ./export
+    ports:
+      - "8080:80"
+    volumes:
+      - ./export/html:/usr/share/nginx/html
+    container_name: "web3d-schooltv"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
