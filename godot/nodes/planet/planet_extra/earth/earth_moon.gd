@@ -18,8 +18,6 @@ var solar_camera
 @onready var moon_tween: Tween
 
 func _ready():
-
-	
 	$Path.rotation_degrees.z = path_tilt
 	$Path/Center/Container/Axis.rotation_degrees.z = moon_tilt
 
@@ -69,6 +67,7 @@ func _animate_moon():
 
 # open planet view, changes camera position + view content
 func _open_moon_view():
+	solar_camera.to_right = moon_height * -0.5
 	solar_camera.change_current()
 	solar_camera.z_position = moon_height * 1.2
 	solar_camera.z_min = solar_camera.z_position * 0.5
@@ -83,24 +82,20 @@ func _open_moon_view():
 func _check_visibility():
 	var parent = get_node('../../../..')
 	var parent_label = get_node('../').get_child(3).get_child(0)
-		
 	
 	match SolarSettings.in_planet_view:
 		"":
-			print("empty")
 			visible = true
 			solar_label.visible = false
 			parent_label.inside_view_label = false
 			parent_label.visible = true
 			
 		"Aarde":
-			print("earth")
 			visible = true
 			solar_label.visible = true
 			parent_label.inside_view_label = false
 			parent_label.visible = false
 		"Maan":
-			print("moon")
 			visible = true
 			parent.visible = true
 			solar_label.visible = false
@@ -108,7 +103,6 @@ func _check_visibility():
 			parent_label.visible = true
 			
 		_: 
-			print("any")
 			visible = false
 			parent.visible = false
 			solar_label.visible = false

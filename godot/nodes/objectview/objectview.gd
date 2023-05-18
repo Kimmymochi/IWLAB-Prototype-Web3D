@@ -10,6 +10,10 @@ signal close_clicked
 func _ready():
 	SolarSettings.settings_view_toggled.connect(_toggle_interaction)
 	SolarSettings.planet_view_toggled.connect(_on_video_stream_player_finished)
+	SolarSettings.add_text_nodes([
+		$Margin/VBox/HSplit/Name,
+		$Margin/VBox/TextPanel/Description
+	])
 
 
 func _on_video_stream_player_finished():
@@ -21,11 +25,11 @@ func _on_play_pressed():
 	if player.paused and player.is_playing():
 		player.paused = false
 		play_button.modulate = Color(0,0,0,0)
-		
+
 	elif not player.paused and player.is_playing():
 		player.paused = true
 		play_button.modulate = Color(1,1,1,1)
-		
+
 	else:
 		player.paused = false
 		player.play() 

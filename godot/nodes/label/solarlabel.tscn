@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bynhhy0qmy17n"]
+[gd_scene load_steps=6 format=3 uid="uid://bynhhy0qmy17n"]
 
 [ext_resource type="Script" path="res://nodes/label/solarlabel.gd" id="1_yopn5"]
+[ext_resource type="FontFile" uid="uid://blcoohqpfdsmy" path="res://fonts/CPCompanyTTBold.ttf" id="2_5okmh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j0h0"]
 bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 expand_margin_left = 4.0
 expand_margin_top = 4.0
 expand_margin_right = 4.0
@@ -15,10 +16,10 @@ expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhk4x"]
 bg_color = Color(0.00392157, 0.164706, 0.364706, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 expand_margin_left = 4.0
 expand_margin_top = 4.0
 expand_margin_right = 4.0
@@ -31,10 +32,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 0.498039)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 expand_margin_left = 4.0
 expand_margin_top = 4.0
 expand_margin_right = 4.0
@@ -50,6 +51,7 @@ use_top_left = true
 
 [node name="Button" type="Button" parent="CenterContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5okmh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0j0h0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nhk4x")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nhk4x")

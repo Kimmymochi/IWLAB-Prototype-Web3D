@@ -11,6 +11,8 @@ signal solar_label_clicked
 func _ready():
 	$CenterContainer/Button.text = label_text
 	SolarSettings.settings_view_toggled.connect(_toggle_interaction)
+	SolarSettings.add_text_nodes([$CenterContainer/Button])
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

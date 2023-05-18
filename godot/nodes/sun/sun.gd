@@ -29,6 +29,7 @@ func _sun_animate():
 
 # open sun view, changes camera position + view content
 func _open_sun_view():
+	$SolarCamera.to_right =  $Sun.mesh.height * -0.5
 	$SolarCamera.change_current()
 	$SolarCamera.z_position = $Sun.mesh.height * 1.2
 	$SolarCamera.z_min = $SolarCamera.z_position * 0.5

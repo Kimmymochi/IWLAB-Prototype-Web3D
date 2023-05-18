@@ -152,9 +152,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ailhx")
 [node name="Settings" type="RichTextLabel" parent="VBoxContainer/SettingsBox/VBox/Header"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
-theme_override_fonts/normal_font = ExtResource("3_ef57i")
+theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_fonts/bold_font = ExtResource("3_ef57i")
 theme_override_font_sizes/normal_font_size = 55
-text = "Settings"
+theme_override_font_sizes/bold_font_size = 55
+bbcode_enabled = true
+text = "[b]Settings[/b]"
 fit_content = true
 
 [node name="Panel" type="PanelContainer" parent="VBoxContainer/SettingsBox/VBox"]
@@ -169,6 +172,7 @@ theme_override_constants/separation = 32
 layout_mode = 2
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_fonts/bold_font = ExtResource("3_ef57i")
 theme_override_font_sizes/normal_font_size = 35
 text = "Full Screen
 "
@@ -195,6 +199,7 @@ icon = ExtResource("7_4hqyl")
 layout_mode = 2
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_fonts/bold_font = ExtResource("4_il28y")
 theme_override_font_sizes/normal_font_size = 35
 text = "Dyslexie Lettertype"
 fit_content = true
@@ -220,7 +225,9 @@ icon = ExtResource("8_8ml68")
 layout_mode = 2
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_fonts/bold_font = ExtResource("3_ef57i")
 theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "[b]Let op![/b] 
 De planeten die je ziet zijn in het echt véél kleiner."
@@ -230,9 +237,11 @@ fit_content = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_il28y")
+theme_override_fonts/bold_font = ExtResource("3_ef57i")
 theme_override_font_sizes/normal_font_size = 15
 text = "Copyright (c) Solar Textures / Solar System Scope / CC-BY 4.0"
 fit_content = true
 
 [connection signal="toggled" from="VBoxContainer/Margin/HBox/Button" to="." method="_on_button_toggled"]
 [connection signal="toggled" from="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer/DyslexiaFont" to="." method="_on_dyslexia_font_toggled"]

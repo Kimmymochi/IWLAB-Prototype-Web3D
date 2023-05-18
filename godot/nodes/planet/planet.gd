@@ -184,10 +184,12 @@ func _check_visibility():
 
 # open planet view, changes camera position + view content
 func _open_planet_view():
+	solar_camera.to_right = planet_height * -0.5
 	solar_camera.change_current()
 	solar_camera.z_position = planet_height * 1.2
 	solar_camera.z_min = solar_camera.z_position * 0.5
 	solar_camera.z_max = solar_camera.z_position * 5
+	
 	
 	SolarSettings.in_planet_view = planet_name
 	SolarSettings.global_view.fill_view(planet_name, planet_description)

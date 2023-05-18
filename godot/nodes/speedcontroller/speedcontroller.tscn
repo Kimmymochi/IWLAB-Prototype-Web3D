@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://begs81hw6fdyq"]
+
+[ext_resource type="Script" path="res://nodes/speedcontroller/speedcontroller.gd" id="1_b8gix"]
+[ext_resource type="FontFile" uid="uid://co5ck2534000h" path="res://fonts/CPCompanyTTRegular.ttf" id="2_wu0b1"]
+[ext_resource type="Texture2D" uid="uid://c38da4tgm7x2v" path="res://icons/arrows.svg" id="3_5k8wd"]
+[ext_resource type="Texture2D" uid="uid://q4hqs0o0s7dv" path="res://icons/rocket.svg" id="3_mnkfh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eabhm"]
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73tlo"]
+bg_color = Color(0.0117647, 0.254902, 0.541176, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spdn2"]
+bg_color = Color(0, 0.0862745, 0.215686, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SpeedController" type="Control"]
+layout_mode = 3
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b8gix")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 600
+theme_override_constants/margin_right = 600
+theme_override_constants/margin_bottom = 32
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="Text" type="RichTextLabel" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("2_wu0b1")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]1 jaar = 2 min.[/center]"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Slower" type="TextureRect" parent="Margin/VBox/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_5k8wd")
+flip_h = true
+
+[node name="Slider" type="HSlider" parent="Margin/VBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("3_mnkfh")
+theme_override_icons/grabber_highlight = ExtResource("3_mnkfh")
+theme_override_styles/slider = SubResource("StyleBoxFlat_eabhm")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_73tlo")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_spdn2")
+max_value = 10.0
+step = 0.001
+value = 1.0
+
+[node name="Faster" type="TextureRect" parent="Margin/VBox/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_5k8wd")
+
+[connection signal="value_changed" from="Margin/VBox/HBoxContainer/Slider" to="." method="_on_slider_value_changed"]

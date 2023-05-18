@@ -28,6 +28,7 @@ var z_max = 2500
 # variables for touch inputs
 var events = {}
 var last_drag_distance = 0
+var to_right = 0
 
 func _unhandled_input(event):
 	
@@ -128,3 +129,5 @@ func _physics_process(delta):
 func change_current():
 	get_viewport().get_camera_3d().current = false
 	camera.current = true
+	camera.h_offset = to_right
+	print(to_right)

@@ -1,36 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8pwmbm1xubxe"]
+[gd_scene load_steps=16 format=3 uid="uid://b8pwmbm1xubxe"]
 
 [ext_resource type="Script" path="res://solarsystem.gd" id="1_u671f"]
 [ext_resource type="PackedScene" uid="uid://cvddqevhqmvkm" path="res://nodes/objectview/objectview.tscn" id="1_ygoom"]
-[ext_resource type="PackedScene" uid="uid://ds82ut4jkmwtb" path="res://nodes/sun/sun.tscn" id="2_cisao"]
+[ext_resource type="PackedScene" uid="uid://cu5sxu7iqfyyv" path="res://nodes/sun/sun.tscn" id="2_cisao"]
 [ext_resource type="PackedScene" uid="uid://fgffng56ca1l" path="res://nodes/settings/settingsview.tscn" id="2_wsjbc"]
+[ext_resource type="PackedScene" uid="uid://begs81hw6fdyq" path="res://nodes/speedcontroller/speedcontroller.tscn" id="3_losxv"]
 [ext_resource type="PackedScene" uid="uid://bynhhy0qmy17n" path="res://nodes/label/solarlabel.tscn" id="3_nxmdc"]
 [ext_resource type="Script" path="res://nodes/planet/planet.gd" id="4_bqnuc"]
 [ext_resource type="PackedScene" uid="uid://cf2vnp4lrhklb" path="res://nodes/planet/planet_extra/venus/venus_atmosphere.tscn" id="5_bfrpu"]
 [ext_resource type="PackedScene" uid="uid://1e0u62qci5yb" path="res://nodes/planet/planet_extra/saturn/saturn_rings.tscn" id="7_i7v1w"]
-[ext_resource type="Texture2D" uid="uid://cqwwunw3e3lgg" path="res://textures/stars_big.jpg" id="8_bfggo"]
 [ext_resource type="PackedScene" uid="uid://ciq76yytpf6hv" path="res://nodes/planet/planet_extra/earth/earth_moon.tscn" id="8_jr7xr"]
 [ext_resource type="PackedScene" uid="uid://dtc7ruoqsvl20" path="res://nodes/camera/solarcamera.tscn" id="9_3lh1d"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oocsn"]
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.0117647, 0.254902, 0.541176, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drhm5"]
-bg_color = Color(0.839216, 0.933333, 0.972549, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nps78"]
-bg_color = Color(0.00392157, 0.164706, 0.364706, 0.894118)
+[ext_resource type="Texture2D" uid="uid://bn7lxfug6fcgq" path="res://textures/stars.jpg" id="11_0bx5d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g2knv"]
-panorama = ExtResource("8_bfggo")
+panorama = ExtResource("11_0bx5d")
 
 [sub_resource type="Sky" id="Sky_dm6al"]
 sky_material = SubResource("PanoramaSkyMaterial_g2knv")
@@ -50,26 +34,9 @@ script = ExtResource("1_u671f")
 
 [node name="Settings" parent="." instance=ExtResource("2_wsjbc")]
 
-[node name="ObjectView" parent="." instance=ExtResource("1_ygoom")]
+[node name="SpeedController" parent="." instance=ExtResource("3_losxv")]
 
-[node name="HSlider" type="HSlider" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -101.0
-offset_top = -45.0
-offset_right = 101.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/slider = SubResource("StyleBoxFlat_oocsn")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_drhm5")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_nps78")
-min_value = 0.001
-max_value = 10.0
-step = 0.01
-value = 1.001
+[node name="ObjectView" parent="." instance=ExtResource("1_ygoom")]
 
 [node name="Sun" parent="." instance=ExtResource("2_cisao")]
 sun_name = "Zon"
@@ -219,5 +186,3 @@ omni_shadow_mode = 0
 environment = SubResource("Environment_kcred")
 
 [node name="Camera" parent="." instance=ExtResource("9_3lh1d")]
-
-[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

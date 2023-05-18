@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds82ut4jkmwtb"]
+[gd_scene load_steps=6 format=3 uid="uid://cu5sxu7iqfyyv"]
 
-[ext_resource type="Texture2D" uid="uid://7f2rak3kr8g1" path="res://textures/sun.jpg" id="1_8d3te"]
 [ext_resource type="Script" path="res://nodes/sun/sun.gd" id="1_bf6u4"]
+[ext_resource type="Texture2D" uid="uid://8jxd1bfuep6y" path="res://textures/sun.jpg" id="2_f68rn"]
 [ext_resource type="PackedScene" uid="uid://dtc7ruoqsvl20" path="res://nodes/camera/solarcamera.tscn" id="3_vb4gy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81aob"]
 shading_mode = 0
-albedo_texture = ExtResource("1_8d3te")
+albedo_texture = ExtResource("2_f68rn")
 
 [sub_resource type="SphereMesh" id="SphereMesh_666vr"]
 material = SubResource("StandardMaterial3D_81aob")

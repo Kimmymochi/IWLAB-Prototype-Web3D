@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvddqevhqmvkm"]
+[gd_scene load_steps=15 format=3 uid="uid://cvddqevhqmvkm"]
 
 [ext_resource type="Script" path="res://nodes/objectview/objectview.gd" id="1_5hgt4"]
 [ext_resource type="Texture2D" uid="uid://bl286ecmtxr10" path="res://icons/return.svg" id="2_aowjx"]
@@ -45,9 +45,34 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf7pj"]
+bg_color = Color(0.839216, 0.933333, 0.972549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76ynd"]
+bg_color = Color(0.00392157, 0.164706, 0.364706, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.00392157, 0.164706, 0.364706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_wpcdp"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_nf7pj")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_76ynd")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2soop"]
 content_margin_left = 32.0
+content_margin_top = 32.0
 content_margin_right = 32.0
+content_margin_bottom = 32.0
 bg_color = Color(0, 0, 0, 0.776471)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -84,6 +109,7 @@ dragger_visibility = 1
 
 [node name="Button" type="Button" parent="Margin/VBox/HSplit"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_c4x2d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_li2mm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_li2mm")
@@ -98,30 +124,31 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(0.0117647, 0.254902, 0.541176, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("3_6v6xa")
+theme_override_fonts/normal_font = ExtResource("4_5rnl0")
+theme_override_fonts/bold_font = ExtResource("3_6v6xa")
 theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
 text = "Mercurius"
 fit_content = true
 
-[node name="TextPanel" type="PanelContainer" parent="Margin/VBox"]
+[node name="TextPanel" type="ScrollContainer" parent="Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 1
+theme = SubResource("Theme_wpcdp")
 theme_override_styles/panel = SubResource("StyleBoxFlat_2soop")
 
 [node name="Description" type="RichTextLabel" parent="Margin/VBox/TextPanel"]
-clip_contents = false
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_5rnl0")
+theme_override_fonts/bold_font = ExtResource("3_6v6xa")
 theme_override_font_sizes/normal_font_size = 35
 text = "Informatie over de planeet komt in dit vakje te staan heel nice jippieee
 Nog een zin hier om te kijken hoe het eruit ziet.
 Ja ziet er prima uit"
-fit_content = true
 
 [node name="VideoPanel" type="PanelContainer" parent="Margin/VBox"]
 layout_mode = 2
