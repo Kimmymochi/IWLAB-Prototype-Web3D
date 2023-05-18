@@ -24,6 +24,7 @@ extends Node3D
 @export_group("Extras")
 @export var planet_extra: Array[PackedScene]
 @export var planet_moon: Array[PackedScene]
+@export var planet_id: String
 
 
 var center
@@ -184,7 +185,7 @@ func _check_visibility():
 
 # open planet view, changes camera position + view content
 func _open_planet_view():
-	solar_camera.to_right = planet_height * -0.5
+	solar_camera.to_right = planet_height * -0.3
 	solar_camera.change_current()
 	solar_camera.z_position = planet_height * 1.2
 	solar_camera.z_min = solar_camera.z_position * 0.5
@@ -192,5 +193,5 @@ func _open_planet_view():
 	
 	
 	SolarSettings.in_planet_view = planet_name
-	SolarSettings.global_view.fill_view(planet_name, planet_description)
 	SolarSettings.global_view.show_view(true)
+	SolarSettings.global_view.fill_view(planet_name, planet_description, planet_id)

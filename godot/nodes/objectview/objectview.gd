@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 class_name ObjectView
 
@@ -14,7 +13,6 @@ func _ready():
 		$Margin/VBox/HSplit/Name,
 		$Margin/VBox/TextPanel/Description
 	])
-
 
 func _on_video_stream_player_finished():
 	player.stop()
@@ -56,12 +54,31 @@ func show_view(view_visible : bool):
 	visible = view_visible
 
 
-func fill_view(object_name, object_description):
+func fill_view(object_name, object_description, object_id):
 	$Margin/VBox/HSplit/Name.text = object_name
 	$Margin/VBox/TextPanel/Description.text = object_description
 	
-	var video_name = object_name.to_lower()
-	player.stream = load("res://videos/" + video_name + ".ogv")
+	if OS.get_name() != 'Web':
+		var video_name = object_name.to_lower()
+		player.stream = load("res://videos/" + video_name + ".ogv")
+#
+	await player.draw
+	await player.draw
+	
+	
+	var rect = Rect2(
+		Vector2(
+			player.get_global_rect().position.x / get_viewport_rect().size.x * 100, 
+			player.get_global_rect().position.y / get_viewport_rect().size.y * 100),
+		Vector2(
+			player.get_global_rect().size.x / get_viewport_rect().size.x * 100,
+			player.get_global_rect().size.y / get_viewport_rect().size.y * 100
+			)
+	)
+	
+	VideoPlayer.show_video(object_id, rect)
+	
+
 
 
 func full_video():

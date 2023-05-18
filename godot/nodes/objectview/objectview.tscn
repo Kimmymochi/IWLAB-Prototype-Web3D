@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvddqevhqmvkm"]
+[gd_scene load_steps=14 format=3 uid="uid://cvddqevhqmvkm"]
 
 [ext_resource type="Script" path="res://nodes/objectview/objectview.gd" id="1_5hgt4"]
 [ext_resource type="Texture2D" uid="uid://bl286ecmtxr10" path="res://icons/return.svg" id="2_aowjx"]
 [ext_resource type="FontFile" uid="uid://blcoohqpfdsmy" path="res://fonts/CPCompanyTTBold.ttf" id="3_6v6xa"]
 [ext_resource type="FontFile" uid="uid://co5ck2534000h" path="res://fonts/CPCompanyTTRegular.ttf" id="4_5rnl0"]
-[ext_resource type="VideoStream" path="res://videos/aarde.ogv" id="5_tts7y"]
 [ext_resource type="Texture2D" uid="uid://cbyjuhneg8h5" path="res://icons/play.svg" id="6_cej6e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4x2d"]
@@ -159,12 +158,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_03qeo")
 [node name="Ratio" type="AspectRatioContainer" parent="Margin/VBox/VideoPanel"]
 clip_contents = true
 layout_mode = 2
-size_flags_vertical = 3
 ratio = 1.7778
+stretch_mode = 0
 
 [node name="Video" type="VideoStreamPlayer" parent="Margin/VBox/VideoPanel/Ratio"]
 layout_mode = 2
-stream = ExtResource("5_tts7y")
 expand = true
 
 [node name="Play" type="Button" parent="Margin/VBox/VideoPanel/Ratio"]

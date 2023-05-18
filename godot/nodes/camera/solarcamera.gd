@@ -130,4 +130,3 @@ func change_current():
 	get_viewport().get_camera_3d().current = false
 	camera.current = true
 	camera.h_offset = to_right
-	print(to_right)

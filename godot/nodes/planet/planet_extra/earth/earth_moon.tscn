@@ -22,6 +22,7 @@ script = ExtResource("1_41bgi")
 moon_name = "Maan"
 moon_description = "De aarde heeft een maan, die de mensen vroeger al bijzonder vonden. Hoe ver staat hij? 
 En hoe is het om er rond te lopen?"
+moon_id = "WO_NTR_766816"
 
 [node name="Path" type="MeshInstance3D" parent="."]
 mesh = SubResource("TorusMesh_yu67o")

@@ -4,6 +4,7 @@ var sun_tween : Tween
 
 @export var sun_name : String
 @export_multiline var sun_description : String
+@export var sun_id : String
 
 
 func _ready():
@@ -29,12 +30,12 @@ func _sun_animate():
 
 # open sun view, changes camera position + view content
 func _open_sun_view():
-	$SolarCamera.to_right =  $Sun.mesh.height * -0.5
+	$SolarCamera.to_right =  $Sun.mesh.height * -0.3
 	$SolarCamera.change_current()
 	$SolarCamera.z_position = $Sun.mesh.height * 1.2
 	$SolarCamera.z_min = $SolarCamera.z_position * 0.5
 	$SolarCamera.z_max = $SolarCamera.z_position * 5
 	
 	SolarSettings.in_planet_view = sun_name
-	SolarSettings.global_view.fill_view(sun_name, sun_description)
+	SolarSettings.global_view.fill_view(sun_name, sun_description, sun_id)
 	SolarSettings.global_view.show_view(true)

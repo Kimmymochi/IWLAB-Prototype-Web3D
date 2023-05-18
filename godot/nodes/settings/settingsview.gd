@@ -30,11 +30,11 @@ func _on_button_toggled(button_pressed):
 
 func _on_full_screen_toggled(button_pressed):
 	if button_pressed:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-#		JavaxScriptBridge.eval("document.querySelector('body').requestFullscreen()")
+#		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		JavaScriptBridge.eval("document.querySelector('body').requestFullscreen()")
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-#		JavaxScriptBridge.eval("document.exitFullscreen()")
+#		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		JavaScriptBridge.eval("document.exitFullscreen()")
 
 
 func _on_dyslexia_font_toggled(button_pressed):

@@ -12,10 +12,13 @@ var solar_camera
 
 @export var moon_name : String
 @export_multiline var moon_description : String
+@export var moon_id : String
+
 
 @onready var solar_label = $Path/Center/Container/MoonLabel/SolarLabel
 @onready var orbit_tween: Tween
 @onready var moon_tween: Tween
+
 
 func _ready():
 	$Path.rotation_degrees.z = path_tilt
@@ -67,14 +70,14 @@ func _animate_moon():
 
 # open planet view, changes camera position + view content
 func _open_moon_view():
-	solar_camera.to_right = moon_height * -0.5
+	solar_camera.to_right = moon_height * -0.3
 	solar_camera.change_current()
 	solar_camera.z_position = moon_height * 1.2
 	solar_camera.z_min = solar_camera.z_position * 0.5
 	solar_camera.z_max = solar_camera.z_position * 5
 
 	SolarSettings.in_planet_view = moon_name
-	SolarSettings.global_view.fill_view(moon_name, moon_description)
+	SolarSettings.global_view.fill_view(moon_name, moon_description, moon_id)
 	SolarSettings.global_view.show_view(true)
 	
 
