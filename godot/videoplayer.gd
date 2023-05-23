@@ -22,6 +22,10 @@ func show_video(video_id : String, rect : Rect2):
 	
 
 func resize_video(rect):
+	var projectResolution = DisplayServer.window_get_size()
+	print(projectResolution)
+	
+	
 	JavaScriptBridge.eval("document.querySelector('iframe').style.top = `"+ str(rect.position.y) + "%`")
 	JavaScriptBridge.eval("document.querySelector('iframe').style.left = `"+ str(rect.position.x) + "%`")
 	JavaScriptBridge.eval("document.querySelector('iframe').style.height = `"+ str(rect.size.y) + "%`")

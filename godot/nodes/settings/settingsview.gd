@@ -6,6 +6,7 @@ extends Node
 @onready var fullscreen = $"VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer/FullScreen"
 
 
+
 func _ready():
 	SolarSettings.add_text_nodes([
 		$VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer/Copyright,
@@ -14,6 +15,14 @@ func _ready():
 		$VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer/FSText,
 		$VBoxContainer/SettingsBox/VBox/Header/Settings,
 	])
+
+# TODO: fix esc toggling button
+#func _unhandled_input(event):
+#	if event is InputEventKey:
+#		if event.keycode == KEY_ESCAPE:
+#			print('test')
+#			fullscreen.button_pressed = false
+
 
 func _on_button_toggled(button_pressed):
 	if(button_pressed):
