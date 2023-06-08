@@ -7,7 +7,7 @@ var path_radius = 0.00257 * SolarSettings.object_distance + 5.222
 var path_tilt = 5.1
 var moon_speed = 27.4
 var moon_tilt = 6.7
-var moon_height = 1.422
+var moon_height = 1.42
 var solar_camera
 
 @export var moon_name : String

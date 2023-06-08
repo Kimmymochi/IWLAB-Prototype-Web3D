@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Web3DTest"
+config/name="Web3D | Zonnestelsel"
 run/main_scene="res://solarsystem.tscn"
 config/features=PackedStringArray("4.0")
-config/icon="res://icon.png"
+boot_splash/show_image=false
+config/icon="res://icon.svg"
 
 [autoload]
 

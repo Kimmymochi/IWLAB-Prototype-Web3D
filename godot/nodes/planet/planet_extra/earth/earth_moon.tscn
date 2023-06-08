@@ -14,8 +14,8 @@ albedo_texture = ExtResource("1_vav0f")
 
 [sub_resource type="SphereMesh" id="SphereMesh_mg7vq"]
 material = SubResource("StandardMaterial3D_kxtf5")
-radius = 0.711
-height = 1.422
+radius = 0.71
+height = 1.42
 
 [node name="Moon" type="Node3D"]
 script = ExtResource("1_41bgi")

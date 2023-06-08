@@ -3,11 +3,16 @@ extends Node3D
 var sun_tween : Tween
 
 @export var sun_name : String
+
 @export_multiline var sun_description : String
 @export var sun_id : String
 
+var sun_tilt = 7.25
+var sun_speed = 24.7
+
 
 func _ready():
+	$Sun.rotation_degrees.z = sun_tilt
 	_sun_animate()
 	SolarSettings.speed_factor_updated.connect(_sun_animate)
 	$SunLabel/SolarLabel.solar_label_clicked.connect(_open_sun_view)
@@ -24,7 +29,7 @@ func _sun_animate():
 		$Sun, 
 		"rotation_degrees", 
 		Vector3(0, 360, 0), 
-		(24.7 * SolarSettings.rotation_speed) / SolarSettings.speed_factor
+		(sun_speed * SolarSettings.rotation_speed) / SolarSettings.speed_factor
 	).as_relative()
 
 

@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dg8vk1xxjfif4" path="res://nodes/planet/planet_extra/saturn/saturn_rings_top.res" id="2_w3obo"]
 
 [node name="SaturnRings" type="Node3D"]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="RingsTop" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_45kdj")

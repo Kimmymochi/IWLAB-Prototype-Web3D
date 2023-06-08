@@ -88,8 +88,8 @@ planet_id = "WO_NTR_755664"
 [node name="Earth" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Aarde"
-planet_radius = 2.611
-planet_height = 5.38
+planet_radius = 2.62
+planet_height = 5.22
 planet_tilt = 23.4
 planet_texture = "res://textures/earth.jpg"
 planet_description = "De aarde ziet er vanuit de hemel blauw uit. 
@@ -106,8 +106,8 @@ planet_id = "WO_NTR_766809"
 [node name="Mars" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Mars"
-planet_radius = 1.39
-planet_height = 2.76
+planet_radius = 1.4
+planet_height = 2.78
 planet_tilt = 25.2
 planet_texture = "res://textures/mars.jpg"
 planet_description = "Mars is onze buurplaneet, hij staat naast de aarde. 
@@ -122,8 +122,8 @@ planet_id = "WO_NTR_766813"
 [node name="Jupiter" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Jupiter"
-planet_radius = 29.26
-planet_height = 54.5
+planet_radius = 31.29
+planet_height = 58.54
 planet_tilt = 3.1
 planet_texture = "res://textures/jupiter.jpg"
 planet_description = "Jupiter is de allergrootste planeet in het zonnestelsel. 
@@ -140,8 +140,8 @@ planet_id = "WO_NTR_726916"
 [node name="Saturn" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Saturnus"
-planet_radius = 24.67
-planet_height = 44.07
+planet_radius = 27.31
+planet_height = 49.35
 planet_tilt = 26.7
 planet_texture = "res://textures/saturn.jpg"
 planet_description = "De planeet Saturnus staat bekend om zijn ringen, maar wist je dat het er heel hard kan waaien? 
@@ -157,8 +157,8 @@ planet_id = "WO_NTR_766817"
 [node name="Uranus" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Uranus"
-planet_radius = 10.47
-planet_height = 20.46
+planet_radius = 10.71
+planet_height = 20.94
 planet_tilt = 97.8
 planet_texture = "res://textures/uranus.jpg"
 planet_description = "Uranus kunnen we vanaf de aarde niet zien, omdat hij zo ver weg staat. 
@@ -173,8 +173,8 @@ planet_id = "WO_NTR_755663"
 [node name="Neptune" type="Node3D" parent="."]
 script = ExtResource("4_bqnuc")
 planet_name = "Neptunus"
-planet_radius = 10.13
-planet_height = 19.92
+planet_radius = 10.3
+planet_height = 20.26
 planet_tilt = 28.3
 planet_texture = "res://textures/neptune.jpg"
 planet_description = "De planeet die het meest ver staat in ons zonnestelsel, is Neptunus. Vroeger wisten ze niet eens dat hij bestond. 

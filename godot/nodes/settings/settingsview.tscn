@@ -157,7 +157,7 @@ theme_override_fonts/bold_font = ExtResource("3_ef57i")
 theme_override_font_sizes/normal_font_size = 55
 theme_override_font_sizes/bold_font_size = 55
 bbcode_enabled = true
-text = "[b]Settings[/b]"
+text = "[b]Instellingen[/b]"
 fit_content = true
 
 [node name="Panel" type="PanelContainer" parent="VBoxContainer/SettingsBox/VBox"]
@@ -174,7 +174,7 @@ theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_il28y")
 theme_override_fonts/bold_font = ExtResource("3_ef57i")
 theme_override_font_sizes/normal_font_size = 35
-text = "Full Screen
+text = "Volledig Scherm
 "
 fit_content = true
 
@@ -201,7 +201,7 @@ theme_override_colors/default_color = Color(0.839216, 0.933333, 0.972549, 1)
 theme_override_fonts/normal_font = ExtResource("4_il28y")
 theme_override_fonts/bold_font = ExtResource("4_il28y")
 theme_override_font_sizes/normal_font_size = 35
-text = "Dyslexie Lettertype"
+text = "Dyslexie-Lettertype"
 fit_content = true
 
 [node name="DyslexiaFont" type="CheckButton" parent="VBoxContainer/SettingsBox/VBox/Panel/VBoxContainer"]
